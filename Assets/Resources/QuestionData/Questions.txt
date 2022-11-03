@@ -1,0 +1,63 @@
+Câu 1. Cho dãy số liệu: 8; 1998; 195; 2007; 1000; 71768; 9999; 17. Dãy trên có tất cả:
+A. 11 số	
+B. 9 số	
+C. 8 số	
+D. 10 số
+
+Câu 2. Hình dưới đây có bao nhiêu hình tam giác, bao nhiêu hình tứ giác?
+{hinh_c2_0}
+A. 4 hình tam giác, 5 hình tứ giác	
+B. 4 hình tam giác, 4 hình tứ giác
+C. 5 hình tam giác, 4 hình tứ giác	
+D. 5 hình tam giác, 5 hình tứ giác
+
+Câu 3. Tổng của 47 856 và 35 687 là:
+A. 83433	
+B. 82443	
+C. 83543	
+D. 82543
+
+Câu 4. Cho A = a5c6 + 4b7d  và	B = abcd + 4567 Hãy so sánh A với B
+A. A = B	
+B. A > B	
+C. B > A	
+D. A < B
+
+Câu 5. Trong các số dưới đây, số nào không thuộc dãy số: 1, 4, 7, 10, 13, …
+A. 1000	
+B. 1234	
+C. 2007	
+D. 100
+
+Câu 6. Mai có 7 viên bi, Hồng có 15 viên bi. Hỏi Hồng phải cho Mai bao nhiêu viên bi để số bi của hai bạn bằng nhau.
+A. 3 viên	
+B. 5 viên	
+C. 4 viên	
+D. 6 viên
+
+Câu 7.
+{hinh_c7_0}
+Hình trên có số đoạn thẳng là:
+A. 13 đoạn	
+B. 16 đoạn	
+C. 15 đoạn	
+D. 18 đoạn
+
+Câu 8. 9m 4cm= … cm
+A. 94 cm	
+B. 940 cm	
+C. 904cm	
+D. 9004 cm
+
+Câu 9. AB = 5cm, BD= 13cm. Diện tích hình chữ nhật ABDC là:
+{hinh_c9_0}
+A. 36 cm²	
+B. 20 cm²	
+C. 65 cm²	
+D. 45 cm
+
+Câu 10. Dùng 4 chữ số lẻ: 1, 3, 5, 7 để viết tất cả các số có 4 chữ số khác nhau thì viết được bao nhiêu số:
+A. 24 số	
+B. 30 số	
+C. 18 số	
+D. 12 số

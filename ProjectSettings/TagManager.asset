@@ -7,6 +7,7 @@ TagManager:
   - CollectItem
   - Enemy
   - PlayerBullet
+  - PlayerShield
   layers:
   - Default
   - TransparentFX
@@ -41,6 +42,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 2659040017
+    locked: 0
+  - name: Shadow
+    uniqueID: 4077855563
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 3347257407
     locked: 0
