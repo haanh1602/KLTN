@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class QuestionDataHandle
@@ -27,7 +28,7 @@ public class QuestionData
     public int score;
     public string questionBeforeImage;
     public string questionAfterImage;
-    public AnswerData[] answer;
+    public List<AnswerData> answer;
 
     public Texture2D questionTexture2D = null;
     
@@ -49,7 +50,7 @@ public class QuestionData
             if (i % 2 != 0)
             {
                 beforeImage = false;
-                questionTexture2D = Resources.Load<Texture2D>("QuestionData/QuestionSprite/" + rawQuestionParts[i].Trim() + ".png");
+                questionTexture2D = Resources.Load<Texture2D>("QuestionData/QuestionSprite/" + rawQuestionParts[i].Trim());
                 rawQuestionParts[i] = "";
             }
             questionBeforeImage ??= "";
@@ -64,6 +65,7 @@ public class QuestionData
         }
         string[] answersData =
             questAndAnswer[1].Trim().Split(new string[] {"[A]"}, StringSplitOptions.RemoveEmptyEntries);
+        answer = new List<AnswerData>();
         for (var i = 0; i < answersData.Length; i++)
         {
             string[] answerStats = answersData[i].Split('~');
@@ -78,7 +80,13 @@ public class QuestionData
             }
 
             answerData.content = answerContent;
+            answer.Add(answerData);
         }
+
+        /*
+        var answerSuf = answer.OrderBy(a => new Guid()).ToList();
+        answer.Clear();
+        answer.AddRange(answerSuf);*/
     }
 }
 

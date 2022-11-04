@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class GameData : Singleton<GameData>
 {
@@ -11,5 +13,9 @@ public class GameData : Singleton<GameData>
     public void InitQuestionData()
     {
         questionsData = QuestionDataHandle.LoadData();
+        /*Random random = new Random();
+        var suf = questionsData.OrderBy(a => random.NextDouble());
+        questionsData.Clear();
+        questionsData.AddRange(suf);*/
     }
 }

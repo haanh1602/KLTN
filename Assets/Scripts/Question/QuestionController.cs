@@ -35,8 +35,8 @@ public class QuestionController : MonoBehaviour
         {
             questionImage.gameObject.SetActive(false);
         }
-        Debug.LogError(answerButtons + ", " + questionData.answer);
-        for (int i = 0; i < answerButtons.Length && i < questionData.answer.Length; i++)
+        Debug.LogError(answerButtons.Length + ", " + questionData.answer.Count);
+        for (int i = 0; i < answerButtons.Length && i < questionData.answer.Count; i++)
         {
             answerButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = this.questionData.answer[i].content;
             answerButtons[i].onClick.RemoveAllListeners();
@@ -69,7 +69,7 @@ public class QuestionController : MonoBehaviour
             Debug.LogWarning(newTexture2D + " cannot display!");
             return;
         }
-        questionImage.preserveAspect = false;
+        questionImage.preserveAspect = true;
         questionImage.raycastTarget = false;
         Vector2 sizeDelta;
         if (newTexture2D.height > newTexture2D.width)

@@ -11,9 +11,13 @@ public class UIHomeManager : MonoBehaviour
         StartCoroutine(AsyncLoadScene("Level"));
     }
 
+    private bool isLoading = false;
+    
     IEnumerator AsyncLoadScene(string sceneName)
     {
-        NotifyUI.Instance.ShowLoading();
+        if (isLoading) yield break;
+        isLoading = true;
+        //NotifyUI.Instance.ShowLoading();
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         GameData.Instance.InitQuestionData();
         while (!asyncLoad.isDone)
@@ -23,5 +27,6 @@ public class UIHomeManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         NotifyUI.Instance.DisableLoading();
+        isLoading = false;
     }
 }
