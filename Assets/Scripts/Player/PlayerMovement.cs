@@ -8,14 +8,12 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement _ins;
     [SerializeField] Animator anim;
-    private void Start()
-    {
-        BasePlayer._ins.transform.position = new Vector3(0, -3, 0);
-    }
+
     void Update()
     {
-        
-        //anim.SetFloat("Speed", UIGameManager._ins.joystick.Direction.magnitude);
+        Vector2 nextPos = UIGameManager._ins.joystick.Direction.normalized * speed * Time.deltaTime;
+        BasePlayer._ins.transform.position += (Vector3)nextPos;
+        anim.SetFloat("Speed", UIGameManager._ins.joystick.Direction.magnitude);
         
     }
 }

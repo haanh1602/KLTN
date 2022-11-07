@@ -81,24 +81,10 @@ public class UImanager : MonoBehaviour
         textLevel.text = "Lv." + BasePlayer._ins.level;
     }
 
-    public void SetUIExp()
-    {
-        float ratio = BasePlayer._ins.currentExp / BasePlayer._ins.maxExp;
-        Image img = exp.GetComponent<Image>();
-        img.fillAmount = ratio;
-    }
-
     public void UIpower(float number)
     {
         Image img = power.GetComponent<Image>();
         img.fillAmount = number;
-    }
-
-    public void SetUIHp()
-    {
-        float ratio =(float) BasePlayer._ins.currentHp /(float) BasePlayer._ins.maxHp;
-        Image img = hp.GetComponent<Image>();
-        img.fillAmount = ratio;
     }
 
     public void btnPause()

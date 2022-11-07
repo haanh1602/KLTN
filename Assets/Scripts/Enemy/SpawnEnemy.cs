@@ -40,20 +40,21 @@ public class SpawnEnemy : MonoBehaviour
 
     void Spawn()
     {
-        hpWave = (long)(BasePlayer._ins.playerAttack.GetDPS() * timeWave*(1+wave*bonusHpWave));
+        //hpWave = (long)(BasePlayer._ins.playerAttack.GetDPS() * timeWave*(1+wave*bonusHpWave));
 
-        bonusHpWave *= 1.1f;
-        int countEnemy = EnemyManager._ins.listBaseEnemy.Count;
-        int randomNumber = UnityEngine.Random.Range(0, countEnemy);
-        int numberEnemy = (int)(hpWave/ EnemyManager._ins.listBaseEnemy[randomNumber].maxHp);
+        //bonusHpWave *= 1.1f;
+        //int countEnemy = EnemyManager._ins.listBaseEnemy.Count;
+        //int randomNumber = UnityEngine.Random.Range(0, countEnemy);
+        //int numberEnemy = (int)(hpWave/ EnemyManager._ins.listBaseEnemy[randomNumber].maxHp);
 
-        float ratioHp = 1f;
-        if (numberEnemy > 100)
-        {
-            ratioHp = numberEnemy / 100f;
-            numberEnemy = 100;
-            EnemyManager._ins.listBaseEnemy[randomNumber].maxHp = (long)(EnemyManager._ins.listBaseEnemy[randomNumber].maxHp * ratioHp);
-        }
+        //float ratioHp = 1f;
+        //if (numberEnemy > 100)
+        //{
+        //    ratioHp = numberEnemy / 100f;
+        //    numberEnemy = 100;
+        //    EnemyManager._ins.listBaseEnemy[randomNumber].maxHp = (long)(EnemyManager._ins.listBaseEnemy[randomNumber].maxHp * ratioHp);
+        //}
+
         //EnemyManager._ins.listBaseEnemy[randomNumber].movementSpeed = EnemyManager._ins.listBaseEnemy[randomNumber].movementSpeed*(1 + bonusHpWave);
 
         
@@ -88,36 +89,36 @@ public class SpawnEnemy : MonoBehaviour
                 break;
         }
 
-        if (numberEnemy < 20)
-        {
-            for (int i = 0; i < numberEnemy; i++)
-            {
-                BaseEnemy e = EnemyManager._ins.GetEnemy(EnemyManager._ins.listBaseEnemy[randomNumber]);
-                Vector3 randomPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0f);
-                e.gameObject.transform.position = randomPosition;
-                e.gameObject.SetActive(true);
-                EnemyManager._ins.listAliveEnemy.Add(e);
-                //e.transform.ResetPosition();
-            }
-        }
-        else
-        {
-            for (int i = 0; i < numberEnemy; i++)
-            {
-                BaseEnemy e = EnemyManager._ins.GetEnemy(EnemyManager._ins.listBaseEnemy[randomNumber]);
-                Vector3 randCir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        //if (numberEnemy < 20)
+        //{
+        //    for (int i = 0; i < numberEnemy; i++)
+        //    {
+        //        BaseEnemy e = EnemyManager._ins.GetEnemy(EnemyManager._ins.listBaseEnemy[randomNumber]);
+        //        Vector3 randomPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0f);
+        //        e.gameObject.transform.position = randomPosition;
+        //        e.gameObject.SetActive(true);
+        //        EnemyManager._ins.listAliveEnemy.Add(e);
+        //        //e.transform.ResetPosition();
+        //    }
+        //}
+        //else
+        //{
+        //    for (int i = 0; i < numberEnemy; i++)
+        //    {
+        //        BaseEnemy e = EnemyManager._ins.GetEnemy(EnemyManager._ins.listBaseEnemy[randomNumber]);
+        //        Vector3 randCir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
 
-                randCir.Normalize();
+        //        randCir.Normalize();
 
-                float distance = Random.Range(10f, 11f);
+        //        float distance = Random.Range(10f, 11f);
 
-                Vector3 randomPosition = BasePlayer._ins.transform.position+randCir*distance;
-                e.gameObject.transform.position = randomPosition;
-                e.gameObject.SetActive(true);
-                EnemyManager._ins.listAliveEnemy.Add(e);
-                //e.transform.ResetPosition();
-            }
-        }
+        //        Vector3 randomPosition = BasePlayer._ins.transform.position+randCir*distance;
+        //        e.gameObject.transform.position = randomPosition;
+        //        e.gameObject.SetActive(true);
+        //        EnemyManager._ins.listAliveEnemy.Add(e);
+        //        //e.transform.ResetPosition();
+        //    }
+        //}
         if (wave % 5 == 0)
         {
             BaseEnemy boss = EnemyManager._ins.GetEnemy(EnemyManager._ins.boss);

@@ -5,26 +5,21 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour, IBaseEnemy
 {
     public int poolIndex;
-    public long maxHp;
-    public int damage;
-    public long currentHp;
-    public float movementSpeed;
-    public float delayAttack;
-    public float distanceAttack;
-    protected bool canAttack;
-    protected bool isAttacking;
+    private float speed = 1f;
+    private const float _distanceMoveToPlayer = 5f;
+    private bool _isRandomMoveMode = false;
+    private float _timeMoveRandomLeftRight = 1f;
+    private Coroutine _coroutineMoveRandomLeftRight;
 
     [SerializeField] FxPool fxDie;
     void Start()
     {
-        currentHp = maxHp;
-        canAttack = true;
-        isAttacking = false;
+
     }
    
     public virtual void Move()
     {
-      
+        //Face
         if (transform.position.x > BasePlayer._ins.transform.position.x)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
@@ -36,68 +31,86 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
 
         Vector3 directionLine = transform.position - BasePlayer._ins.transform.position;
         Vector3 target = BasePlayer._ins.transform.position + directionLine.normalized * 0.3f;
-        transform.position = Vector3.MoveTowards(transform.position, target, movementSpeed * Time.deltaTime);
-
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 
+    public void RandomMove()
+    {
+        if (_coroutineMoveRandomLeftRight != null) StopCoroutine(_coroutineMoveRandomLeftRight);
+        _coroutineMoveRandomLeftRight = StartCoroutine(MoveRandomLeftRight());
+    }
+
+    private IEnumerator MoveRandomLeftRight()
+    {
+        float timer = 0;
+        int randomAction = UnityEngine.Random.Range(0, 2);
+        Vector3 nextPos;
+
+        while (gameObject.activeInHierarchy)
+        {
+            if (timer >= _timeMoveRandomLeftRight)
+            {
+                randomAction = UnityEngine.Random.Range(0, 2);
+                timer = 0;
+            }
+            else
+            {
+                switch (randomAction)
+                {
+                    case 0:
+                        nextPos = Vector3.left * speed * Time.deltaTime;
+                        transform.position += nextPos;
+                        break;
+                    case 1:
+                        nextPos = Vector3.right * speed * Time.deltaTime;
+                        transform.position += nextPos;
+                        break;
+                }
+            }
+
+            yield return null;
+            timer += Time.deltaTime;
+        }
+    }
     public void Update()
     {
-        if(!isAttacking && !CanAttack())
+        if (FollowToPlayer())
         {
+            _isRandomMoveMode = false;
+            if (_coroutineMoveRandomLeftRight != null) StopCoroutine(_coroutineMoveRandomLeftRight);
             Move();
         }
-        if(!isAttacking && CanAttack())
+        else
         {
-            Attack();
+            if(_isRandomMoveMode == false)
+            {
+                _isRandomMoveMode = true;
+                RandomMove();
+            }
         }
     }
-    public bool CanAttack()
+
+    public bool FollowToPlayer()
     {
         float distance = Vector3.Distance(transform.position, BasePlayer._ins.transform.position);
-        if (canAttack && distance <= distanceAttack) return true;
-        return false;
-    }
-
-    public virtual void Attack() {
-        isAttacking = true;
-        canAttack = false;
-        StartCoroutine(CoroutineAttack());
-        StartCoroutine(CoroutineAttacking());
-    }
-
-    private IEnumerator CoroutineAttack()
-    {
-        yield return new WaitForSeconds(delayAttack);
-        canAttack = true;
-    }
-
-    private IEnumerator CoroutineAttacking()
-    {
-        yield return new WaitForSeconds(0.5f);
-        isAttacking = false;
+        return distance < _distanceMoveToPlayer;
     }
 
     public virtual void Die()
     {
-        if (currentHp <= 0)
+        if (fxDie != null)
         {
-            if (fxDie!=null)
-            {
-                FxPool fx= PoolFxManager._ins.SpawnFx(fxDie.gameObject);
-                fx.transform.position = transform.position;
-                fx.gameObject.SetActive(true);
-            }    
-            this.gameObject.SetActive(false);
-            EnemyManager._ins.listAliveEnemy.Remove(this);
-            EnemyManager._ins.AddToPoolEnemy(this);
+            FxPool fx = PoolFxManager._ins.SpawnFx(fxDie.gameObject);
+            fx.transform.position = transform.position;
+            fx.gameObject.SetActive(true);
         }
+        this.gameObject.SetActive(false);
+        EnemyManager._ins.listAliveEnemy.Remove(this);
+        EnemyManager._ins.AddToPoolEnemy(this);
     }
      
     public virtual void ResetPool()
     {
 
-        currentHp = maxHp;
-        isAttacking = false;
-        canAttack = true;
     }
 }
