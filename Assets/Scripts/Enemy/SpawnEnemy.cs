@@ -61,7 +61,7 @@ public class SpawnEnemy : MonoBehaviour
 
 
         float minX = bottomLeft.x - 1, maxX = bottomLeft.x, minY = bottomLeft.y - 1, maxY = bottomLeft.y;
-        switch ((int)UnityEngine.Random.RandomRange(0, 4))
+        switch ((int)UnityEngine.Random.Range(0, 4))
         {
             case 0:
                 minX = bottomLeft.x - 5;
