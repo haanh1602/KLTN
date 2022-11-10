@@ -92,7 +92,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7970228043844991062}
   - component: {fileID: 7970228043844991063}
-  - component: {fileID: 7970228043844991061}
   - component: {fileID: 7970228043844991058}
   - component: {fileID: 2162159941881104954}
   - component: {fileID: 7671778789611244551}
@@ -169,20 +168,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7970228043844991061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7970228043844991056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f56c1e8dd89d5944882f0f0d19bc4792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 0}
 --- !u!61 &7970228043844991058
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -207,7 +192,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.02, y: 0.81}
+  m_Size: {x: 0.9, y: 0.8}
   m_EdgeRadius: 0
 --- !u!95 &2162159941881104954
 Animator:
@@ -221,7 +206,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9b5dd0a3a369b8b49a9cba5c6ad53c08, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -241,10 +226,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolIndex: 7
-  maxHp: 10
-  damage: 3
-  currentHp: 0
-  movementSpeed: 1
-  delayAttack: 2
-  distanceAttack: 0.5
   fxDie: {fileID: 330991355212136114, guid: b6b018680057f884aba134cf42649927, type: 3}

@@ -69,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 34046293
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 315505c5ef081df4da54dc2c83ffd406, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 4376473950324518108}
   - component: {fileID: 4376473950324518109}
   - component: {fileID: 4376473950324518098}
-  - component: {fileID: 4376473950324518099}
   - component: {fileID: 4376473950324518096}
   - component: {fileID: 6705982556775473695}
   m_Layer: 0
@@ -156,7 +155,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1955088475
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 684263a281c3b834fb99ee74aaefd361, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -182,27 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolIndex: 1
-  maxHp: 20
-  damage: 5
-  currentHp: 0
-  movementSpeed: 2
-  delayAttack: 1
-  distanceAttack: 0.5
   fxDie: {fileID: 330991355212136114, guid: b6b018680057f884aba134cf42649927, type: 3}
---- !u!114 &4376473950324518099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4376473950324518097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f56c1e8dd89d5944882f0f0d19bc4792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 4376473950324518098}
 --- !u!61 &4376473950324518096
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -227,7 +206,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.02, y: 0.81}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
 --- !u!95 &6705982556775473695
 Animator:
@@ -241,7 +220,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8878f97d3e0dd6347b9b73f01a44a4bc, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 

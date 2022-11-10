@@ -7,7 +7,6 @@ public class UIHomeManager : MonoBehaviour
 {
     public void OnClickButtonHome()
     {
-        MapHandle.seed = new Vector2(Random.Range(10f, 12f), Random.Range(70f, 82f));
         StartCoroutine(AsyncLoadScene("Level"));
     }
 

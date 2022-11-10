@@ -10,8 +10,10 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     private bool _isRandomMoveMode = false;
     private float _timeMoveRandomLeftRight = 1f;
     private Coroutine _coroutineMoveRandomLeftRight;
+    private QuestionData question;
 
     [SerializeField] FxPool fxDie;
+
     void Start()
     {
 

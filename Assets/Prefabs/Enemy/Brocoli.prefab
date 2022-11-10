@@ -1,75 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &519627035221005459
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 519627035221005456}
-  - component: {fileID: 1241272774961252129}
-  m_Layer: 0
-  m_Name: LineShot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &519627035221005456
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519627035221005459}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 519627036773795621}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1241272774961252129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519627035221005459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf8ed6458b22394b87b4d9583c1c642, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_bulletPrefab: {fileID: 3857691775447991851, guid: cd9e8486c4828ae4a91cd4d4b0ed9464, type: 3}
-  m_bulletNum: 1
-  m_bulletSpeed: 5
-  m_accelerationSpeed: 0
-  m_useMaxSpeed: 0
-  m_maxSpeed: 0
-  m_useMinSpeed: 0
-  m_minSpeed: 0
-  m_accelerationTurn: 0
-  m_usePauseAndResume: 0
-  m_pauseTime: 0
-  m_resumeTime: 0
-  m_useAutoRelease: 1
-  m_autoReleaseTime: 1.5
-  m_shotFiredCallbackEvents:
-    m_PersistentCalls:
-      m_Calls: []
-  m_shotFinishedCallbackEvents:
-    m_PersistentCalls:
-      m_Calls: []
-  m_angle: 180
-  m_betweenDelay: 0.1
-  m_setTargetFromTag: 1
-  m_targetTagName: Player
-  m_randomSelectTagTarget: 0
-  m_targetTransform: {fileID: 0}
-  m_aiming: 1
 --- !u!1 &519627035338521441
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,10 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 519627035338521370}
   - component: {fileID: 519627035338521445}
-  - component: {fileID: 519627035338521447}
   - component: {fileID: 519627035338521446}
   - component: {fileID: 2441287869457540642}
-  - component: {fileID: 3844957739290424233}
   - component: {fileID: 3615994143476878158}
   m_Layer: 0
   m_Name: Brocoli
@@ -103,7 +31,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 519627036773795621}
   - {fileID: 3097858138769853128}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -159,20 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &519627035338521447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519627035338521441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f56c1e8dd89d5944882f0f0d19bc4792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 3844957739290424233}
 --- !u!61 &519627035338521446
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -197,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.02, y: 0.81}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!95 &2441287869457540642
 Animator:
@@ -211,34 +124,13 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0ac1bb8173444c949b926e1b7197d813, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3844957739290424233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519627035338521441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 345a8c41d8942964b93b1c127c4f3b6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolIndex: 2
-  maxHp: 10
-  damage: 3
-  currentHp: 0
-  movementSpeed: 1
-  delayAttack: 1
-  distanceAttack: 4
-  fxDie: {fileID: 330991355212136114, guid: b6b018680057f884aba134cf42649927, type: 3}
-  shotCtrl: {fileID: 519627036773795546}
 --- !u!114 &3615994143476878158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,69 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolIndex: 2
-  maxHp: 10
-  damage: 3
-  currentHp: 0
-  movementSpeed: 1
-  delayAttack: 1
-  distanceAttack: 4
   fxDie: {fileID: 330991355212136114, guid: b6b018680057f884aba134cf42649927, type: 3}
---- !u!1 &519627036773795620
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 519627036773795621}
-  - component: {fileID: 519627036773795546}
-  m_Layer: 0
-  m_Name: shotCtrl
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &519627036773795621
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519627036773795620}
-  m_LocalRotation: {x: 0, y: 0, z: -0.258819, w: 0.9659259}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 519627035221005456}
-  m_Father: {fileID: 519627035338521370}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
---- !u!114 &519627036773795546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519627036773795620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4f0f29fa90c15e4ca1c2e77ce62f18a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_axisMove: 0
-  m_inheritAngle: 1
-  m_startOnAwake: 0
-  m_startOnAwakeDelay: 1
-  m_loop: 0
-  m_atRandom: 0
-  m_shotList:
-  - m_shotObj: {fileID: 1241272774961252129}
-    m_afterDelay: 0.3
-  m_shotRoutineFinishedCallbackEvents:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1761624415188518071
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +174,7 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 519627035338521370}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7633610695516941262
 SpriteRenderer:

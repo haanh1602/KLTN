@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,10 +16,17 @@ public class QuestionController : MonoBehaviour
     private RectTransform _imgRectTransform;
     private Vector2 _defaultSizeDelta;
 
+    public Action OnAnsweredQuestion = delegate { };
+
     private void Awake()
     {
         _imgRectTransform = questionImage.GetComponent<RectTransform>();
         _defaultSizeDelta = _imgRectTransform.sizeDelta;
+    }
+
+    private void Start()
+    {
+        OnAnsweredQuestion += UIGameManager._ins.OpenJoystick;
     }
 
     public void Init(QuestionData questionData)
@@ -45,6 +53,7 @@ public class QuestionController : MonoBehaviour
             {
                 if (questionData.answer[tempI].isRight) OnClickWrongAnswer();
                 else OnClickRightAnswer(questionData.answer[tempI]);
+                OnAnsweredQuestion?.Invoke();
             });
         }
     }
