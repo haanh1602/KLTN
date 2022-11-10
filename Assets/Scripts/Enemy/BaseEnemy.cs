@@ -10,13 +10,13 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     private bool _isRandomMoveMode = false;
     private float _timeMoveRandomLeftRight = 1f;
     private Coroutine _coroutineMoveRandomLeftRight;
-    private QuestionData question;
+    public QuestionData question;
 
     [SerializeField] FxPool fxDie;
 
     void Start()
     {
-
+        RandomQuestion();
     }
    
     public virtual void Move()
@@ -110,9 +110,14 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         EnemyManager._ins.listAliveEnemy.Remove(this);
         EnemyManager._ins.AddToPoolEnemy(this);
     }
-     
+    public void RandomQuestion()
+    {
+        int id = Random.RandomRange(0, GameData.Instance.questionsData.Count);
+        question = GameData.Instance.questionsData[id];
+    }
     public virtual void ResetPool()
     {
-
+        gameObject.SetActive(true);
+        RandomQuestion();
     }
 }

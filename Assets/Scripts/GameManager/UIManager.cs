@@ -10,8 +10,8 @@ public class UIManager : Singleton<UIManager>
 
     public void NextQuest(QuestionData questionData)
     {
-        questionController.Init(questionData);
-        questionThTMP.text = GameManager.Instance.QuestTh + " / " + GameManager.Instance.MaxQuest;
+        //questionController.Init(questionData);
+        //questionThTMP.text = GameManager.Instance.QuestTh + " / " + GameManager.Instance.MaxQuest;
     }
 
     public void RefreshScore()

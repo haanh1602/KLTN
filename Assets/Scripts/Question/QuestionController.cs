@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class QuestionController : MonoBehaviour
 {
-    private QuestionData questionData;
+    private BaseEnemy enemy;
     
     [SerializeField] private TextMeshProUGUI questionBeforeImageTMP;
     [SerializeField] private Image questionImage;
@@ -29,31 +29,33 @@ public class QuestionController : MonoBehaviour
         OnAnsweredQuestion += UIGameManager._ins.OpenJoystick;
     }
 
-    public void Init(QuestionData questionData)
+    public void Init(BaseEnemy enemy)
     {
-        this.questionData = questionData;
-        questionBeforeImageTMP.text = this.questionData.questionBeforeImage;
-        questionAfterImageTMP.text = questionData.questionAfterImage;
-        if (questionData.questionTexture2D != null)
+        this.enemy = enemy;
+        questionBeforeImageTMP.text = enemy.question.questionBeforeImage;
+        questionAfterImageTMP.text = enemy.question.questionAfterImage;
+        if (enemy.question.questionTexture2D != null)
         {
             questionImage.gameObject.SetActive(true);
-            DisplayNewImage(questionData.questionTexture2D);
+            DisplayNewImage(enemy.question.questionTexture2D);
         }
         else
         {
             questionImage.gameObject.SetActive(false);
         }
-        Debug.LogError(answerButtons.Length + ", " + questionData.answer.Count);
-        for (int i = 0; i < answerButtons.Length && i < questionData.answer.Count; i++)
+        Debug.LogError(answerButtons.Length + ", " + enemy.question.answer.Count);
+        for (int i = 0; i < answerButtons.Length && i < enemy.question.answer.Count; i++)
         {
-            answerButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = this.questionData.answer[i].content;
+            answerButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = this.enemy.question.answer[i].content;
             answerButtons[i].onClick.RemoveAllListeners();
             var tempI = i;
             answerButtons[i].onClick.AddListener(() =>
             {
-                if (questionData.answer[tempI].isRight) OnClickWrongAnswer();
-                else OnClickRightAnswer(questionData.answer[tempI]);
+                if (enemy.question.answer[tempI].isRight) OnClickWrongAnswer();
+                else OnClickRightAnswer(enemy.question.answer[tempI]);
                 OnAnsweredQuestion?.Invoke();
+                EnemyManager._ins.AddToPoolEnemy(this.enemy);
+                EnemyManager._ins.listAliveEnemy.Remove(this.enemy);
             });
         }
     }

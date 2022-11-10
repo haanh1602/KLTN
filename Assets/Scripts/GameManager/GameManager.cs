@@ -9,15 +9,18 @@ public class GameManager : Singleton<GameManager>
 
     private void Awake()
     {
+        StartNewGame();
+    }
+
+    private void StartNewGame() {
+        GameData.Instance.ShuffleQuestionsDataList();
         MaxQuest = GameData.Instance.questionsData.Count;
-        UIManager.Instance.questionController.Init(GameData.Instance.questionsData[QuestTh]);
     }
 
     public void NextQuest()
     {
         QuestTh++;
         if (QuestTh > MaxQuest) return;
-        UIManager.Instance.questionController.Init(GameData.Instance.questionsData[QuestTh]);
     }
 
     public void OnRightClicked()

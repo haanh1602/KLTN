@@ -696,7 +696,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 566062707}
+  - component: {fileID: 566062708}
   - component: {fileID: 566062706}
+  - component: {fileID: 566062709}
+  - component: {fileID: 566062710}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -713,9 +716,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 566062705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9ea947454f94974fb2edbbf9bf11458, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b5ee8aab845a7242a39ae0180b3efd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transformCache: {fileID: 0}
+  listBaseEnemy:
+  - {fileID: 2523138003935787021, guid: d9cd573ce556d93479f8fb8d55f7ca14, type: 3}
+  - {fileID: 4376473950324518098, guid: 0a503af18e00cac4f8614373e205ef43, type: 3}
+  - {fileID: 3615994143476878158, guid: 0bc9d07d18f51e1459ab172317983bf2, type: 3}
+  - {fileID: 7588931668379869654, guid: b2d97f0b9e5133440a48b46e544e42c5, type: 3}
+  - {fileID: 1476012592881663610, guid: fd5192f5ddd1a2640a67323f3eadc5ef, type: 3}
+  - {fileID: 3340239727416576305, guid: 3fe3aac0530391e469361c559540468f, type: 3}
+  - {fileID: 7671778789611244551, guid: 2a636d680a1935142829412ba8236d04, type: 3}
+  - {fileID: -4795494476407579675, guid: 0431d6c844dca6a4ea26a35b0036abfa, type: 3}
+  - {fileID: 8155228217641476247, guid: a711e2e464a69034287ccba081a223e5, type: 3}
+  listAliveEnemy: []
+  boss: {fileID: 3190639697743810045, guid: 9148b54616f59034cbd52cfb12dce2b4, type: 3}
+  boss2: {fileID: -4256953798777839644, guid: 032e50ff97eb0eb41a477977165920c3, type: 3}
 --- !u!4 &566062707
 Transform:
   m_ObjectHideFlags: 0
@@ -730,6 +747,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &566062708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566062705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478ab4118c112b24fa4a8ee498af044b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberEnemy: 1
+--- !u!114 &566062709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566062705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1698d73f78dca44b9242201bb8f295c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &566062710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566062705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb053c551d67acd4c9aa832614ddfc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dividePart: 37
+  testGO: {fileID: 0}
+  testRespawn: 0
 --- !u!1 &567540584
 GameObject:
   m_ObjectHideFlags: 0

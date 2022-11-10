@@ -19,12 +19,12 @@ public class UIGameManager : MonoBehaviour
         OpenJoystick();
     }
 
-    public void OpenQuestion()
+    public void OpenQuestion(BaseEnemy enemy)
     {
         Time.timeScale = 0;
+        UIManager.Instance.questionController.Init(enemy);
         joystick.enabled = false;
         question.active = true;
-        Debug.Log("eeeee");
     }
 
     public void OpenJoystick()

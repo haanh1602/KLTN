@@ -26,9 +26,9 @@ namespace Character
         // ReSharper disable once MemberCanBePrivate.Global
         public static void ReSpawnObjectRandom(GameObject go)
         {
-            go.transform.position = RandomSpawnPosition(UIGameManager._ins && UIGameManager._ins.joystick.Direction != Vector2.zero
+            go.transform.position = RandomSpawnPosition(/*UIGameManager._ins && UIGameManager._ins.joystick.Direction != Vector2.zero
                 ? ClampPartIndex(DirectToPartIndex(UIGameManager._ins.joystick.Direction) + Random.Range(-4, 4))
-                : Random.Range(0, _dividePart));
+                : */Random.Range(0, _dividePart));
         }
     
         private static Vector3 RandomSpawnPosition(int partIndex)

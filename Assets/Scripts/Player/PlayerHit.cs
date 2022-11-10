@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerHit : MonoBehaviour
 {
-    public Action OnHitEnemy = delegate { };
+    public Action<BaseEnemy> OnHitEnemy = delegate { };
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class PlayerHit : MonoBehaviour
         if (collision.gameObject.tag.Equals("Enemy"))
         {
             BaseEnemy enemy = collision.gameObject.GetComponent<BaseEnemy>();
-            OnHitEnemy?.Invoke();
+            OnHitEnemy?.Invoke(enemy);
         }
 
     }
