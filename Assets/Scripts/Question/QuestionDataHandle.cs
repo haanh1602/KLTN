@@ -113,4 +113,5 @@ public class QuestionLevel
     public const string Hard = "H";
     public const string Medium = "M";
     public const string Easy = "E";
+    public const string None = "";
 }
