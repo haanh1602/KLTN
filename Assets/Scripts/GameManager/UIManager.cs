@@ -1,21 +1,41 @@
 using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
 {
-    public QuestionController questionController;
-    [SerializeField] private TextMeshProUGUI scoreTMP;
-    [SerializeField] private TextMeshProUGUI questionThTMP;
+    [SerializeField] private UIAnimator uiAnimator;
+    [SerializeField] private QuestionController questionController;
+    [SerializeField] private MyTextMeshProUGUI scoreTMP;
+    [SerializeField] private MyTextMeshProUGUI questionIndexTMP;
 
-    public void NextQuest(QuestionData questionData)
+    public QuestionController QuestionController => questionController;
+    public UIAnimator UIAnimator => uiAnimator;
+
+    private void Awake()
     {
-        //questionController.Init(questionData);
-        //questionThTMP.text = GameManager.Instance.QuestTh + " / " + GameManager.Instance.MaxQuest;
+        scoreTMP.OnChangeText += uiAnimator.OnChangeScoreText;
+        questionIndexTMP.OnChangeText += uiAnimator.OnChangeQuestionThText;
     }
 
-    public void RefreshScore()
+    public void SetScore(int score)
     {
-        scoreTMP.text = GameManager.Instance.Score.ToString();
+        scoreTMP.text = score.ToString();
+    }
+
+    public void SetQuestionTh(int questionIndex, int maxQuest)
+    {
+        questionIndexTMP.text = $"{questionIndex}/{maxQuest}";
+    }
+
+    public void ShowQuestion()
+    {
+        UIAnimator.ShowQuestion();
+    }
+
+    public void HideQuestion()
+    {
+        UIAnimator.HideQuestion();
     }
 }

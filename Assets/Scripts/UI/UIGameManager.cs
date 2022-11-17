@@ -22,15 +22,18 @@ public class UIGameManager : MonoBehaviour
     public void OpenQuestion(BaseEnemy enemy)
     {
         Time.timeScale = 0;
-        UIManager.Instance.questionController.Init(enemy);
-        joystick.enabled = false;
-        question.active = true;
+        UIManager.Instance.QuestionController.Init(enemy);
+        UIManager.Instance.ShowQuestion();
+        joystick.OnPointerUp(null);
+        joystick.gameObject.SetActive(false);
+        //question.active = true;
     }
 
     public void OpenJoystick()
     {
         Time.timeScale = 1;
-        question.active = false;
-        joystick.enabled = true;
+        UIManager.Instance.HideQuestion();
+        //question.active = false;
+        joystick.gameObject.SetActive(true);
     }
 }

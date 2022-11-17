@@ -13,6 +13,7 @@ public class EnemyManager : MonoBehaviour
     public BaseEnemy boss;
     public BaseEnemy boss2;
 
+    public BaseEnemy activeEnemy = null;
 
     public void Awake()
     {
@@ -105,12 +106,11 @@ public class EnemyManager : MonoBehaviour
             newList.Add(enemy);
             listEnemyPool.Add(newList);
         }
-        
-
     }
 
-
-
-
-
+    public void DeSpawnActiveEnemy()
+    {
+        AddToPoolEnemy(activeEnemy);
+        listAliveEnemy.Remove(activeEnemy);
+    }
 }

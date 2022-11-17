@@ -21,6 +21,8 @@ public class GameManager : Singleton<GameManager>
     {
         QuestTh++;
         if (QuestTh > MaxQuest) return;
+        
+        UIGameManager._ins.OpenJoystick();
     }
 
     public void OnRightClicked()
