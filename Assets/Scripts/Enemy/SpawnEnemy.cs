@@ -68,10 +68,11 @@ public class SpawnEnemy : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitUntil(() => !EnemyManager._ins.IsPause);
+            
             wave++;
             wave %= 15;
             Spawn();
-
             yield return new WaitForSeconds(10f);
             
 

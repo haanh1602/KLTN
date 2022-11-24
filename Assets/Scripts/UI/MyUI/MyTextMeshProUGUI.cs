@@ -27,17 +27,5 @@ public class MyTextMeshProUGUI : TextMeshProUGUI
     protected override void Start()
     {
         base.Start();
-        OnChangeText += () =>
-        {
-            Debug.LogError(text);
-        };
-        //StartCoroutine(Test());
-    }
-
-    public IEnumerator Test()
-    {
-        yield return new WaitForSeconds(1f);
-        text += "n";
-        StartCoroutine(Test());
     }
 }
