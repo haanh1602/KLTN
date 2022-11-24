@@ -14,14 +14,16 @@ public class UIGameManager : MonoBehaviour
         _ins = this;
     }
 
-    private void Start()
+    /*private void Start()
     {
         OpenJoystick();
-    }
+    }*/
 
     public void OpenQuestion(BaseEnemy enemy)
     {
-        Time.timeScale = 0;
+        /*Time.timeScale = 0;*/
+        GameManager.Instance.StartAnswer();
+        
         UIManager.Instance.QuestionController.Init(enemy);
         UIManager.Instance.ShowQuestion();
         joystick.OnPointerUp(null);
@@ -31,8 +33,9 @@ public class UIGameManager : MonoBehaviour
 
     public void OpenJoystick()
     {
-        Time.timeScale = 1;
-        UIManager.Instance.HideQuestion();
+        /*Time.timeScale = 1;*/
+        GameManager.Instance.FinishAnswer();
+        
         //question.active = false;
         joystick.gameObject.SetActive(true);
     }

@@ -47,18 +47,44 @@ public class QuestionController : MonoBehaviour
         {
             answers[i].Init(enemy.question.answer[i].content, enemy.question.answer[i].isRight);
         }
+
+        GameManager.Instance.NewQuest();
     }
 
-    private void OnClickWrongAnswer()
+    public void OnClickWrongAnswer()
     {
         Debug.Log("Wrong answer!");
         GameManager.Instance.OnWrongClicked();
+        foreach (var answer in answers)
+        {
+            if (!answer.IsRight) continue;
+            answer.PlayResultAnimation(false);
+            break;
+        }
+        DisableAnswerInteractable();
     }
 
-    private void OnClickRightAnswer(AnswerData answerData)
+    public void RemoveAnswersListener()
+    {
+        foreach (var answer in answers)
+        {
+            answer.Button.onClick.RemoveAllListeners();
+        }
+    }
+
+    public void DisableAnswerInteractable()
+    {
+        foreach (var answer in answers)
+        {
+            answer.Button.onClick.RemoveAllListeners();
+        }
+    }
+
+    public void OnClickRightAnswer()
     {
         Debug.Log("Right answer!");
         GameManager.Instance.OnRightClicked();
+        DisableAnswerInteractable();
     }
 
     private void ShowRightAnswerDetail()

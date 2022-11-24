@@ -76,6 +76,8 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     }
     public void Update()
     {
+        if (EnemyManager._ins.IsPause) return;
+        
         if (FollowToPlayer())
         {
             _isRandomMoveMode = false;
@@ -119,5 +121,11 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     {
         gameObject.SetActive(true);
         RandomQuestion();
+    }
+
+    public void StopMove()
+    {
+        StopAllCoroutines();
+        _isRandomMoveMode = false;
     }
 }

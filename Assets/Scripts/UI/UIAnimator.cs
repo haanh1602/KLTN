@@ -9,11 +9,19 @@ public class UIAnimator : MonoBehaviour
     public void ShowQuestion()
     {
         questionPanelDOT.DORestartAllById("show_question");
+        Debug.Log("Show Question");
     }
 
     public void HideQuestion()
     {
         questionPanelDOT.DORestartAllById("hide_question");
+        Debug.Log("Hide Question");
+    }
+
+    public void ShowContinueButton()
+    {
+        questionPanelDOT.DORestartAllById("show_continue");
+        Debug.Log("Show continue button");
     }
     
     /// <summary>
