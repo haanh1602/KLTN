@@ -13,7 +13,30 @@ public class EnemyManager : MonoBehaviour
     public BaseEnemy boss;
     public BaseEnemy boss2;
 
+    public BaseEnemy activeEnemy = null;
 
+    private bool pause = false;
+
+    public bool IsPause => pause;
+
+    public void PauseEnemy()
+    {
+        if (pause != true)
+        {
+            
+            for (int i = 0; i < listAliveEnemy.Count; i++)
+            {
+                listAliveEnemy[i].StopMove();
+            }
+        }
+        pause = true;
+    }
+
+    public void ContinueEnemy()
+    {
+        pause = false;
+    }
+    
     public void Awake()
     {
         _ins = this;
@@ -105,12 +128,11 @@ public class EnemyManager : MonoBehaviour
             newList.Add(enemy);
             listEnemyPool.Add(newList);
         }
-        
-
     }
 
-
-
-
-
+    public void DeSpawnActiveEnemy()
+    {
+        AddToPoolEnemy(activeEnemy);
+        listAliveEnemy.Remove(activeEnemy);
+    }
 }

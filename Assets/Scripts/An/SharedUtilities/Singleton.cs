@@ -43,6 +43,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
+    public static bool IsNull => _instance == null;
+
     private static bool applicationIsQuitting = false;
     public void OnDestroy ()
     {

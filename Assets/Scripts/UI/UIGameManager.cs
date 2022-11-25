@@ -14,23 +14,29 @@ public class UIGameManager : MonoBehaviour
         _ins = this;
     }
 
-    private void Start()
+    /*private void Start()
     {
         OpenJoystick();
-    }
+    }*/
 
     public void OpenQuestion(BaseEnemy enemy)
     {
-        Time.timeScale = 0;
-        UIManager.Instance.questionController.Init(enemy);
-        joystick.enabled = false;
-        question.active = true;
+        /*Time.timeScale = 0;*/
+        GameManager.Instance.StartAnswer();
+        
+        UIManager.Instance.QuestionController.Init(enemy);
+        UIManager.Instance.ShowQuestion();
+        joystick.OnPointerUp(null);
+        joystick.gameObject.SetActive(false);
+        //question.active = true;
     }
 
     public void OpenJoystick()
     {
-        Time.timeScale = 1;
-        question.active = false;
-        joystick.enabled = true;
+        /*Time.timeScale = 1;*/
+        GameManager.Instance.FinishAnswer();
+        
+        //question.active = false;
+        joystick.gameObject.SetActive(true);
     }
 }

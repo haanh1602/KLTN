@@ -26,8 +26,8 @@ public class QuestionData
     public string id;
     public string qLevel;
     public int score;
-    public string questionBeforeImage;
-    public string questionAfterImage;
+    public string questionBeforeImage = "";
+    public string questionAfterImage = "";
     public List<AnswerData> answer;
 
     public Texture2D questionTexture2D = null;
