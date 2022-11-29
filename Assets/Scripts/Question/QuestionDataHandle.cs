@@ -5,17 +5,51 @@ using UnityEngine;
 
 public class QuestionDataHandle
 {
+    public const int numberAnswer = 4;
     public static List<QuestionData> LoadData()
     {
-        var textAsset = Resources.Load<TextAsset>("QuestionData/Questions");
-        var rawText = textAsset.text;
-        var questionsRawData = rawText.Split(new string[] {"[Q]"}, StringSplitOptions.RemoveEmptyEntries);
         List<QuestionData> questionsData = new List<QuestionData>();
-        foreach (var questionRawData in questionsRawData)
+        int numberQuestion = QuestionSheet.GetDictionary().Count;
+        for(int i = 0; i < numberQuestion; i++)
         {
-            questionsData.Add(new QuestionData(questionRawData.Trim()));
-        }
+            QuestionData question = new QuestionData();
+            question.id = QuestionSheet.Get(i).id;
+            question.qLevel = QuestionSheet.Get(i).level;
+            question.score = QuestionSheet.Get(i).score;
+            question.questionBeforeImage = QuestionSheet.Get(i).question_1;
+            question.questionAfterImage = QuestionSheet.Get(i).question_2;
+            question.questionAfterImage = QuestionSheet.Get(i).question_2;
+            if(QuestionSheet.Get(i).image != null)
+            {
+                question.questionTexture2D = Resources.Load<Texture2D>("QuestionData/QuestionSprite/" + QuestionSheet.Get(i).image);
+            }
 
+            question.answer = new List<AnswerData>();
+            for (int j = 0; j < numberAnswer; j++)
+            {
+                AnswerData answerData = new AnswerData();
+                answerData.id = j;
+                answerData.questionId = question.id;
+                switch(j)
+                {
+                    case 0:
+                        answerData.isRight = true;
+                        answerData.content = QuestionSheet.Get(i).right_answer;
+                        break;
+                    case 1:
+                        answerData.content = QuestionSheet.Get(i).wrong_answer_1;
+                        break;
+                    case 2:
+                        answerData.content = QuestionSheet.Get(i).wrong_answer_2;
+                        break;
+                    case 3:
+                        answerData.content = QuestionSheet.Get(i).wrong_answer_3;
+                        break;
+                }
+                question.answer.Add(answerData);
+            }
+            questionsData.Add(question);
+        }
         return questionsData;
     }
 }
@@ -23,7 +57,7 @@ public class QuestionDataHandle
 
 public class QuestionData
 {
-    public string id;
+    public int id;
     public string qLevel;
     public int score;
     public string questionBeforeImage = "";
@@ -34,72 +68,28 @@ public class QuestionData
     
     public QuestionData() { }
 
-    public QuestionData(string data)
+    public QuestionData(QuestionData data)
     {
-        data = data.Trim();
-        string[] questAndAnswer = data.Split(new string[] {"[#]"}, StringSplitOptions.RemoveEmptyEntries);
-        string[] questionDetail = questAndAnswer[0].Trim().Split('~');
-        string[] questionStats = questionDetail[0].Trim().Split('_');
-        id = questionStats[0];
-        qLevel = questionStats[1];
-        Int32.TryParse(questionStats[2], out score);
-        string[] rawQuestionParts = questionDetail[1].Trim().Split('@');
-        bool beforeImage = true;
-        for (int i = 0; i < rawQuestionParts.Length; i++)
-        {
-            if (i % 2 != 0)
-            {
-                beforeImage = false;
-                questionTexture2D = Resources.Load<Texture2D>("QuestionData/QuestionSprite/" + rawQuestionParts[i].Trim());
-                rawQuestionParts[i] = "";
-            }
-            questionBeforeImage ??= "";
-            if (beforeImage)
-            {
-                questionBeforeImage += rawQuestionParts[i];
-            }
-            else
-            {
-                questionAfterImage += rawQuestionParts[i];
-            }
-        }
-        string[] answersData =
-            questAndAnswer[1].Trim().Split(new string[] {"[A]"}, StringSplitOptions.RemoveEmptyEntries);
-        answer = new List<AnswerData>();
-        for (var i = 0; i < answersData.Length; i++)
-        {
-            string[] answerStats = answersData[i].Split('~');
-            AnswerData answerData = new AnswerData();
-            answerData.id = answerStats[0];
-            answerData.questionId = id;
-            string answerContent = answerStats[1];
-            if (answerContent.Contains("[*]"))
-            {
-                answerData.isRight = true;
-                answerContent = answerContent.Replace("[*]", "");
-            }
-
-            answerData.content = answerContent;
-            answer.Add(answerData);
-        }
-
-        /*
-        var answerSuf = answer.OrderBy(a => new Guid()).ToList();
-        answer.Clear();
-        answer.AddRange(answerSuf);*/
+        this.id = data.id;
+        this.qLevel = data.qLevel;
+        this.score = data.score;
+        this.questionBeforeImage = data.questionBeforeImage;
+        this.questionAfterImage = data.questionAfterImage;
+        this.questionTexture2D = data.questionTexture2D;
+        this.answer = data.answer;
     }
 }
 
 public class AnswerData
 {
-    public string id;
-    public string questionId;
+    public int id;
+    public int questionId;
     public string content;
-    public bool isRight;
+    public bool isRight = false;
 
-    public AnswerData() { }
+    public AnswerData() {}
 
-    public AnswerData(string id, string questionId, string content, bool isRight)
+    public AnswerData(int id, int questionId, string content, bool isRight)
     {
         this.id = id;
         this.questionId = questionId;
@@ -108,10 +98,10 @@ public class AnswerData
     }
 }
 
-public class QuestionLevel
+public enum QuestionLevel
 {
-    public const string Hard = "H";
-    public const string Medium = "M";
-    public const string Easy = "E";
-    public const string None = "";
+    Hard,
+    Medium,
+    Easy,
+    None
 }

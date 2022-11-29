@@ -10,14 +10,115 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b9cd076c40219740b0b2bdf9bc9e47f, type: 3}
-  m_Name: SerializableSet
+  m_Name: 
   m_EditorClassIdentifier: 
-  Sheet1s:
+  Questions:
   - id: 0
-    question: "H\xECnh tr\xEAn c\xF3 bao nhi\xEAu c\u1EA1nh?"
+    question_1: "Cho d\xE3y s\u1ED1 li\u1EC7u: 8; 1998; 195; 2007; 1000; 71768; 9999;
+      17. D\xE3y tr\xEAn c\xF3 t\u1EA5t c\u1EA3:"
+    image: 
+    question_2: 
+    right_answer: "8 s\u1ED1"
+    wrong_answer_1: "11 s\u1ED1"
+    wrong_answer_2: "9 s\u1ED1"
+    wrong_answer_3: "10 s\u1ED1"
+    level: E
+    score: 1
   - id: 1
-    question: "T\xEDnh "
+    question_1: "H\xECnh d\u01B0\u1EDBi \u0111\xE2y c\xF3 bao nhi\xEAu h\xECnh tam
+      gi\xE1c, bao nhi\xEAu h\xECnh t\u1EE9 gi\xE1c?"
+    image: hinh_c2_0
+    question_2: 
+    right_answer: "4 h\xECnh tam gi\xE1c, 5 h\xECnh t\u1EE9 gi\xE1c"
+    wrong_answer_1: "4 h\xECnh tam gi\xE1c, 4 h\xECnh t\u1EE9 gi\xE1c"
+    wrong_answer_2: "5 h\xECnh tam gi\xE1c, 4 h\xECnh t\u1EE9 gi\xE1c"
+    wrong_answer_3: "5 h\xECnh tam gi\xE1c, 5 h\xECnh t\u1EE9 gi\xE1c"
+    level: M
+    score: 2
   - id: 2
-    question: "T\xEDnh "
+    question_1: "T\u1ED5ng c\u1EE7a 47 856 v\xE0 35 687 l\xE0:"
+    image: 
+    question_2: 
+    right_answer: 83433
+    wrong_answer_1: 82443
+    wrong_answer_2: 83543
+    wrong_answer_3: 82543
+    level: E
+    score: 1
   - id: 3
-    question: "T\xEDnh "
+    question_1: "Cho A = a5c6 + 4b7d  v\xE0 B = abcd + 4567. H\xE3y so s\xE1nh A
+      v\u1EDBi B"
+    image: 
+    question_2: 
+    right_answer: A > B
+    wrong_answer_1: A = B
+    wrong_answer_2: B > A
+    wrong_answer_3: A < B
+    level: H
+    score: 3
+  - id: 4
+    question_1: "Trong c\xE1c s\u1ED1 d\u01B0\u1EDBi \u0111\xE2y, s\u1ED1 n\xE0o
+      kh\xF4ng thu\u1ED9c d\xE3y s\u1ED1: 1, 4, 7, 10, 13, \u2026"
+    image: 
+    question_2: 
+    right_answer: 2007
+    wrong_answer_1: 1000
+    wrong_answer_2: 1234
+    wrong_answer_3: 100
+    level: M
+    score: 2
+  - id: 5
+    question_1: "Mai c\xF3 7 vi\xEAn bi, H\u1ED3ng c\xF3 15 vi\xEAn bi. H\u1ECFi
+      H\u1ED3ng ph\u1EA3i cho Mai bao nhi\xEAu vi\xEAn bi \u0111\u1EC3 s\u1ED1 bi
+      c\u1EE7a hai b\u1EA1n b\u1EB1ng nhau."
+    image: 
+    question_2: 
+    right_answer: "4 vi\xEAn"
+    wrong_answer_1: "5 vi\xEAn"
+    wrong_answer_2: "3 vi\xEAn"
+    wrong_answer_3: "6 vi\xEAn"
+    level: E
+    score: 1
+  - id: 6
+    question_1: 
+    image: hinh_c7_0
+    question_2: "H\xECnh tr\xEAn c\xF3 s\u1ED1 \u0111o\u1EA1n th\u1EB3ng l\xE0:"
+    right_answer: "13 \u0111o\u1EA1n"
+    wrong_answer_1: "16 \u0111o\u1EA1n"
+    wrong_answer_2: "15 \u0111o\u1EA1n"
+    wrong_answer_3: "18 \u0111o\u1EA1n"
+    level: E
+    score: 1
+  - id: 7
+    question_1: "9m 4cm= \u2026 cm"
+    image: 
+    question_2: 
+    right_answer: 904 cm
+    wrong_answer_1: 94 cm
+    wrong_answer_2: 940 cm
+    wrong_answer_3: 9004 cm
+    level: E
+    score: 1
+  - id: 8
+    question_1: "AB = 5cm, BD= 13cm. Di\u1EC7n t\xEDch h\xECnh ch\u1EEF nh\u1EADt
+      ABDC l\xE0:"
+    image: hinh_c9_0
+    question_2: 
+    right_answer: "36 cm\xB2"
+    wrong_answer_1: "20 cm\xB2"
+    wrong_answer_2: "65 cm\xB2"
+    wrong_answer_3: "45 cm\xB2"
+    level: E
+    score: 1
+  - id: 9
+    question_1: "D\xF9ng 4 ch\u1EEF s\u1ED1 l\u1EBB: 1, 3, 5, 7 \u0111\u1EC3 vi\u1EBFt
+      t\u1EA5t c\u1EA3 c\xE1c s\u1ED1 c\xF3 4 ch\u1EEF s\u1ED1 kh\xE1c nhau th\xEC
+      vi\u1EBFt \u0111\u01B0\u1EE3c bao nhi\xEAu s\u1ED1:"
+    image: 
+    question_2: 
+    right_answer: "24 s\u1ED1"
+    wrong_answer_1: "30 s\u1ED1"
+    wrong_answer_2: "18 s\u1ED1"
+    wrong_answer_3: "12 s\u1ED1"
+    level: H
+    score: 3
