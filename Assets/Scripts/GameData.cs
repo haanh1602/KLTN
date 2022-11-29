@@ -5,9 +5,10 @@ using UnityEngine;
 public class GameData : Singleton<GameData>
 {
     public List<QuestionData> questionsData;
-    
+    [SerializeField] SerializableSet _set;
     private void Awake()
     {
+        Deserializer.Deserialize(_set);
         DontDestroyOnLoad(gameObject);
     }
 
