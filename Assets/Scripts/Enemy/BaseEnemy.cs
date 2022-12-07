@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BaseEnemy : MonoBehaviour, IBaseEnemy
 {
@@ -11,6 +13,8 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     private float _timeMoveRandomLeftRight = 1f;
     private Coroutine _coroutineMoveRandomLeftRight;
     public QuestionData question;
+
+    [SerializeField] private LevelCircle levelCircle;
 
     [SerializeField] FxPool fxDie;
 
@@ -116,6 +120,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     {
         int id = Random.RandomRange(0, GameData.Instance.questionsData.Count);
         question = GameData.Instance.questionsData[id];
+        if (levelCircle) levelCircle.Init(GetQuestionLevel.FromDataString(question.qLevel));
     }
     public virtual void ResetPool()
     {

@@ -7,7 +7,7 @@ public class UIHomeManager : MonoBehaviour
 {
     public void OnClickButtonHome()
     {
-        StartCoroutine(AsyncLoadScene("Level"));
+        StartCoroutine(AsyncLoadScene("Menu"));
     }
 
     private bool isLoading = false;

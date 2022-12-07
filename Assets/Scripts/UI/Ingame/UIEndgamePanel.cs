@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIEndgamePanel : MonoBehaviour
@@ -12,6 +14,9 @@ public class UIEndgamePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timeTMP;
     [SerializeField] private TextMeshProUGUI rewardTMP;
     [SerializeField] private Button goHomeButton;
+
+    [Header("UI")]
+    [SerializeField] private GameObject UILoading;
 
     private void Awake()
     {
@@ -25,6 +30,8 @@ public class UIEndgamePanel : MonoBehaviour
         wrongAnswersTMP.text = $"SỐ CÂU SAI: <color=#FF2626>{wrongAnswers}</color>";
         timeTMP.text = "THỜI GIAN HOÀN THÀNH:\n" + timeBySecond / 60 + " phút " + timeBySecond % 60 + " giây";
         rewardTMP.text = "PHẦN THƯỞNG:  " + reward;
+
+        PlayerPrefs.SetInt(Constant.PrefKeys.KEY_GOLD, PlayerPrefs.GetInt(Constant.PrefKeys.KEY_GOLD, 0) + reward);
     }
 
     public void Show()
@@ -36,5 +43,13 @@ public class UIEndgamePanel : MonoBehaviour
     private void OnGoHomeClick()
     {
         Debug.Log("On go home clicked!");
+        StartCoroutine(_IELoadingInGame("Menu"));
+    }
+    
+    private IEnumerator _IELoadingInGame(string sceneName)
+    {
+        UILoading.SetActive(true);
+        yield return new  WaitForSecondsRealtime(1.5f);
+        SceneManager.LoadScene(sceneName);
     }
 }

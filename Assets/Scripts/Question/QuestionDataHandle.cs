@@ -105,3 +105,19 @@ public enum QuestionLevel
     Easy,
     None
 }
+
+public class GetQuestionLevel
+{
+    public static QuestionLevel FromDataString(string s)
+    {
+        if (string.IsNullOrEmpty(s)) return QuestionLevel.None;
+        switch (s.Trim().ToUpper())
+        {
+            case "E": return QuestionLevel.Easy;
+            case "M": return QuestionLevel.Medium;
+            case "H": return QuestionLevel.Hard;
+        }
+
+        return QuestionLevel.None;
+    }
+}
