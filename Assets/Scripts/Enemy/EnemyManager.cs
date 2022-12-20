@@ -132,7 +132,6 @@ public class EnemyManager : MonoBehaviour
 
     public void DeSpawnActiveEnemy()
     {
-        AddToPoolEnemy(activeEnemy);
-        listAliveEnemy.Remove(activeEnemy);
+        activeEnemy.Die();
     }
 }

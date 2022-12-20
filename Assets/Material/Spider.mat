@@ -41,13 +41,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ColorMask: 15
-    - _Edges: 0.114
+    - _Edges: 0
     - _EnableExternalAlpha: 0
     - _Level: 0
     - _UseUIAlphaClip: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EdgeColour1: {r: 0.98039216, g: 0.54832107, b: 0.36470586, a: 1}
+    - _EdgeColour1: {r: 1, g: 1, b: 0, a: 1}
     - _EdgeColour2: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

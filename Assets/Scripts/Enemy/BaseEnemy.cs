@@ -104,17 +104,25 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         return distance < _distanceMoveToPlayer;
     }
 
-    public virtual void Die()
+    public IEnumerator DieFx()
     {
-        if (fxDie != null)
+        Renderer renderer = gameObject.GetComponent<Renderer>();
+        renderer.material.SetFloat("_Edges", 0.2f);
+        Debug.LogError("Edge - " + renderer.material.GetFloat("_Edges"));
+        for(float i = 0f; i <= 1f; i += 0.1f)
         {
-            FxPool fx = PoolFxManager._ins.SpawnFx(fxDie.gameObject);
-            fx.transform.position = transform.position;
-            fx.gameObject.SetActive(true);
+            renderer.material.SetFloat("_Level", i);
+            yield return new WaitForSeconds(.1f);
         }
         this.gameObject.SetActive(false);
+        renderer.material.SetFloat("_Edges", 0f);
+        renderer.material.SetFloat("_Level", 0f);
         EnemyManager._ins.listAliveEnemy.Remove(this);
         EnemyManager._ins.AddToPoolEnemy(this);
+    }
+    public virtual void Die()
+    {
+        StartCoroutine(DieFx());
     }
     public void RandomQuestion()
     {

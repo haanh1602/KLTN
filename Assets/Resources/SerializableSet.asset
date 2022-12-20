@@ -29,19 +29,19 @@ MonoBehaviour:
       gi\xE1c, bao nhi\xEAu h\xECnh t\u1EE9 gi\xE1c?"
     image: hinh_c2_0
     question_2: 
-    right_answer: "4 h\xECnh tam gi\xE1c, 5 h\xECnh t\u1EE9 gi\xE1c"
+    right_answer: "5 h\xECnh tam gi\xE1c, 5 h\xECnh t\u1EE9 gi\xE1c"
     wrong_answer_1: "4 h\xECnh tam gi\xE1c, 4 h\xECnh t\u1EE9 gi\xE1c"
     wrong_answer_2: "5 h\xECnh tam gi\xE1c, 4 h\xECnh t\u1EE9 gi\xE1c"
-    wrong_answer_3: "5 h\xECnh tam gi\xE1c, 5 h\xECnh t\u1EE9 gi\xE1c"
+    wrong_answer_3: "4 h\xECnh tam gi\xE1c, 5 h\xECnh t\u1EE9 gi\xE1c"
     level: M
     score: 2
   - id: 2
     question_1: "T\u1ED5ng c\u1EE7a 47 856 v\xE0 35 687 l\xE0:"
     image: 
     question_2: 
-    right_answer: 83433
+    right_answer: 83543
     wrong_answer_1: 82443
-    wrong_answer_2: 83543
+    wrong_answer_2: 83433
     wrong_answer_3: 82543
     level: E
     score: 1
@@ -83,8 +83,8 @@ MonoBehaviour:
     question_1: 
     image: hinh_c7_0
     question_2: "H\xECnh tr\xEAn c\xF3 s\u1ED1 \u0111o\u1EA1n th\u1EB3ng l\xE0:"
-    right_answer: "13 \u0111o\u1EA1n"
-    wrong_answer_1: "16 \u0111o\u1EA1n"
+    right_answer: "16 \u0111o\u1EA1n"
+    wrong_answer_1: "13 \u0111o\u1EA1n"
     wrong_answer_2: "15 \u0111o\u1EA1n"
     wrong_answer_3: "18 \u0111o\u1EA1n"
     level: E
@@ -104,9 +104,9 @@ MonoBehaviour:
       ABDC l\xE0:"
     image: hinh_c9_0
     question_2: 
-    right_answer: "36 cm\xB2"
+    right_answer: "65 cm\xB2"
     wrong_answer_1: "20 cm\xB2"
-    wrong_answer_2: "65 cm\xB2"
+    wrong_answer_2: "36 cm\xB2"
     wrong_answer_3: "45 cm\xB2"
     level: E
     score: 1
