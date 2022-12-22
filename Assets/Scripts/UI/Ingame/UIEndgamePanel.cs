@@ -43,12 +43,14 @@ public class UIEndgamePanel : MonoBehaviour
     private void OnGoHomeClick()
     {
         Debug.Log("On go home clicked!");
+        goHomeButton.interactable = false;
         StartCoroutine(_IELoadingInGame("Menu"));
     }
     
     private IEnumerator _IELoadingInGame(string sceneName)
     {
         UILoading.SetActive(true);
+        GameData.Instance.UnlockNewLevel();
         yield return new  WaitForSecondsRealtime(1.5f);
         SceneManager.LoadScene(sceneName);
     }

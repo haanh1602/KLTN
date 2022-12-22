@@ -66,4 +66,12 @@ public class UIMenuManager : MonoBehaviour
         yield return new  WaitForSecondsRealtime(1.5f);
         SceneManager.LoadScene(sceneName);
     }
+
+    public void OnStartGame(int level)
+    {
+        Debug.LogWarning("____ Starting level " + level);
+        AudioManager.Instance.PlaySound(0);
+        StartCoroutine(_IELoadingInGame("Level"));
+        GameData.Instance.PlayingLevel = level;
+    }
 }
