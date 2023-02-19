@@ -1,0 +1,63 @@
+[Q]0_E_1~Cho dãy số liệu: 8; 1998; 195; 2007; 1000; 71768; 9999; 17. Dãy trên có tất cả:[#]
+[A]0~11 số   
+[A]1~9 số    
+[A]2~8 số[*] 
+[A]3~10 số
+
+[Q]1_M_2~Hình dưới đây có bao nhiêu hình tam giác, bao nhiêu hình tứ giác?
+@hinh_c2_0@[#]
+[A]0~4 hình tam giác, 5 hình tứ giác[*]
+[A]1~4 hình tam giác, 4 hình tứ giác
+[A]2~5 hình tam giác, 4 hình tứ giác 
+[A]3~5 hình tam giác, 5 hình tứ giác
+
+[Q]2_E_1~Tổng của 47 856 và 35 687 là:[#]
+[A]0~83433[*]   
+[A]1~82443   
+[A]2~83543   
+[A]3~82543
+
+[Q]3_H_3~Cho A = a5c6 + 4b7d  và B = abcd + 4567. Hãy so sánh A với B[#]
+[A]0~A = B[*]   
+[A]1~A > B   
+[A]2~B > A   
+[A]3~A < B
+
+[Q]4_M_2~Trong các số dưới đây, số nào không thuộc dãy số: 1, 4, 7, 10, 13, …[#]
+[A]0~1000[*]    
+[A]1~1234    
+[A]2~2007    
+[A]3~100
+
+[Q]5_E_1~Mai có 7 viên bi, Hồng có 15 viên bi. Hỏi Hồng phải cho Mai bao nhiêu viên bi để số bi của hai bạn bằng nhau.[#]
+[A]0~3 viên[*]  
+[A]1~5 viên  
+[A]2~4 viên  
+[A]3~6 viên
+
+[Q]6_E_1~
+@hinh_c7_0@
+Hình trên có số đoạn thẳng là:[#]
+[A]0~13 đoạn[*] 
+[A]1~16 đoạn 
+[A]2~15 đoạn 
+[A]3~18 đoạn
+
+[Q]7_E_1~9m 4cm= … cm[#]
+[A]0~94 cm[*]   
+[A]1~940 cm  
+[A]2~904cm   
+[A]3~9004 cm
+
+[Q]8_E_1~AB = 5cm, BD= 13cm. Diện tích hình chữ nhật ABDC là:
+@hinh_c9_0@[#]
+[A]0~36 cm²[*]  
+[A]1~20 cm²  
+[A]2~65 cm²  
+[A]3~45 cm
+
+[Q]9_E_1~Dùng 4 chữ số lẻ: 1, 3, 5, 7 để viết tất cả các số có 4 chữ số khác nhau thì viết được bao nhiêu số:[#]
+[A]0~24 số[*]   
+[A]1~30 số   
+[A]2~18 số   
+[A]3~12 số
