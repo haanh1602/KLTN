@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
+    [SerializeField] private GameObject Player;
     [SerializeField] private UIAnimator uiAnimator;
     [SerializeField] private QuestionController questionController;
     [SerializeField] private MyTextMeshProUGUI scoreTMP;
@@ -16,9 +17,11 @@ public class UIManager : Singleton<UIManager>
 
     public QuestionController QuestionController => questionController;
     public UIAnimator UIAnimator => uiAnimator;
+    private Animator animPlayer;
 
     private void Awake()
     {
+        animPlayer = Player.GetComponent<Animator>();
         scoreTMP.OnChangeText += uiAnimator.OnChangeScoreText;
         questionIndexTMP.OnChangeText += uiAnimator.OnChangeQuestionThText;
         continueButton.onClick.AddListener(OnContinueButtonClick);
@@ -61,7 +64,15 @@ public class UIManager : Singleton<UIManager>
 
     private void OnContinueButtonClick()
     {
+        animPlayer.SetBool("isCrying", false);
+        animPlayer.SetBool("isSmiling", false);
         HideQuestion();
+    }
+
+    public void AnswerQuestion(bool check)
+    {
+        if (check) animPlayer.SetBool("isSmiling", true);
+        else animPlayer.SetBool("isCrying", true);
     }
 
     private void OnFinishGameClick()

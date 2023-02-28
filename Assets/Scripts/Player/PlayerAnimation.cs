@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private Direction _direction;
-    [SerializeField] Animator anim;
+    [SerializeField] public Animator anim;
     [SerializeField] private Direction defaultDirection;
     private void Awake()
     {
