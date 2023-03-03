@@ -4,7 +4,6 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
 public class BonusPointUIFx : MonoBehaviour
 {
     private int _point = 0;
@@ -14,6 +13,8 @@ public class BonusPointUIFx : MonoBehaviour
     private static Transform destinationTransform = null;
 
     private bool moving = false;
+
+    public Action<BonusPointUIFx> OnComplete = null;
     
     public static Transform Destination
     {
@@ -59,5 +60,6 @@ public class BonusPointUIFx : MonoBehaviour
         MessageDispatcher.SendMessage(this, BonusPointUIMessageKey.AddBonusPoint, point, 0f);
         moving = false;
         gameObject.SetActive(false);
+        OnComplete?.Invoke(this);
     }
 }
