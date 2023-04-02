@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BookBossAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 3b27232206196014b93dd8df6932087b, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 4c4fb330ac27006438f8379e18d8fa3d, type: 3}
+  - {fileID: 21300000, guid: 4cd0f61287955824580a19ba5c69dd12, type: 3}
+  - {fileID: 21300000, guid: 465c73828c2bb864eb073829262be1d9, type: 3}
+  - {fileID: 21300000, guid: 24d0e333cb9609540bd1d215a1b57f33, type: 3}
+  - {fileID: 21300000, guid: 1c8e54731f26f8d45b0c746dae44701c, type: 3}
+  - {fileID: 21300000, guid: a68f8f342fb691c4fa83bf336db62854, type: 3}
+  - {fileID: 21300000, guid: 67020f75eb64d4a44ab5ebe216801bbe, type: 3}
+  - {fileID: 21300000, guid: a52e24f661658a8479932afc9586d2f7, type: 3}
+  - {fileID: 21300000, guid: f1fd5f08b5aeaf046b8487cf699b452c, type: 3}
+  - {fileID: 21300000, guid: ee5cce791c9d1bb4bac43e77c549a86a, type: 3}
+  - {fileID: 21300000, guid: 49f7542a4918836419d1d0299aa5cbfa, type: 3}
+  - {fileID: 21300000, guid: 5c25734a85c6b594b989d7c30e466c60, type: 3}
+  - {fileID: 21300000, guid: 73c07d8b2e53f914f8725473a2b6f912, type: 3}
+  - {fileID: 21300000, guid: 17649ffc78578924c9b43f56e050e8ab, type: 3}
+  - {fileID: 21300000, guid: 6eb1365e4bc248949bda20eb577bdec3, type: 3}
+  - {fileID: 21300000, guid: 4678117e599f3514cbd6163a9ba576b0, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - boss_sach_atk3
+  - boss_sach_atk1
+  - boss_sach_atk6
+  - boss_sach3
+  - boss_sach4
+  - boss_sach_atk5
+  - boss_sach_atk4
+  - boss_sach5
+  - boss_sach1
+  - boss_sach8
+  - boss_sach2
+  - boss_sach_atk2
+  - boss_sach6
+  - boss_sach_atk7
+  - boss_sach_atk8
+  - boss_sach7
+  m_RenderDataMap: {}
+  m_Tag: BookBossAtlas
+  m_IsVariant: 0

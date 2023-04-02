@@ -9,22 +9,23 @@ public class BonusPointFxManager : MonoBehaviour
     [SerializeField] private GameObject fxContainerGO;
 
     private List<BonusPointUIFx> pooling = new List<BonusPointUIFx>();
-    private List<BonusPointUIFx> usingFxes = new List<BonusPointUIFx>();
-    
+
     public void Spawn(int point, Vector3 spawnPosition)
     {
         if (pooling.Count == 0)
         {
             var fx = Instantiate(bonusPointUIFxPrefab, spawnPosition, Quaternion.identity, fxContainerGO.transform);
+            Vector2 transformInViewPort = Camera.main.WorldToViewportPoint(spawnPosition);
+            /*fx.RectTransform.anchorMin = transformInViewPort;
+            fx.RectTransform.anchorMax = transformInViewPort;*/
+            fx.RectTransform.position = new Vector3(transformInViewPort.x, transformInViewPort.y, 0f);
             fx.OnComplete = OnFxComplete;
-            usingFxes.Add(fx);
             fx.Init(point);
         }
         else
         {
             var fx = pooling[0];
             pooling.RemoveAt(0);
-            usingFxes.Add(fx);
             fx.transform.position = spawnPosition;
             fx.Init(point);
         }
@@ -32,7 +33,6 @@ public class BonusPointFxManager : MonoBehaviour
 
     private void OnFxComplete(BonusPointUIFx fx)
     {
-        usingFxes.Remove(fx);
         pooling.Add(fx);
     }
 }

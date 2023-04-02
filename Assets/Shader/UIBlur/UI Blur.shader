@@ -2,6 +2,7 @@ Shader "UI/UI Blur"
 {
 	Properties{
 		_Size("Size", Range(0, 10)) = 1
+		_MainTex("MainTex", 2D) = "white"{}
 	}
 
 		Category{
@@ -42,7 +43,9 @@ Shader "UI/UI Blur"
 
 						sampler2D _GrabTexture : register(s0);
 						float4 _GrabTexture_TexelSize;
+						CBUFFER_START(UnityPerMaterial)
 						float _Size;
+						CBUFFER_END
 
 						half4 frag(v2f i) : COLOR {
 
@@ -100,7 +103,9 @@ Shader "UI/UI Blur"
 
 						sampler2D _GrabTexture : register(s0);
 						float4 _GrabTexture_TexelSize;
+						CBUFFER_START(UnityPerMaterial)
 						float _Size;
+						CBUFFER_END
 
 						half4 frag(v2f i) : COLOR {
 

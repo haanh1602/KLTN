@@ -7,6 +7,7 @@ using UnityEngine;
 public class BonusPointUIFx : MonoBehaviour
 {
     private int _point = 0;
+    public RectTransform RectTransform;
     [SerializeField] private TextMeshProUGUI pointTmp;
     [SerializeField] private DOTweenAnimation pointDOT;
 
@@ -15,7 +16,12 @@ public class BonusPointUIFx : MonoBehaviour
     private bool moving = false;
 
     public Action<BonusPointUIFx> OnComplete = null;
-    
+
+    private void Awake()
+    {
+        if (!RectTransform) RectTransform = GetComponent<RectTransform>();
+    }
+
     public static Transform Destination
     {
         get

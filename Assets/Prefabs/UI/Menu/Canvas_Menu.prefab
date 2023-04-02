@@ -172,10 +172,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleGroup: {fileID: 393781842}
   listLevelButton:
-  - {fileID: 1797997289}
-  - {fileID: 798585518712746974}
-  - {fileID: 798585517690460383}
   - {fileID: 798585519324116792}
+  - {fileID: 798585517690460383}
+  - {fileID: 798585518712746974}
+  - {fileID: 1797997289}
 --- !u!114 &393781842
 MonoBehaviour:
   m_ObjectHideFlags: 0

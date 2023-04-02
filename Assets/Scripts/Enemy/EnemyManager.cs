@@ -130,8 +130,8 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void DeSpawnActiveEnemy()
+    public void DeSpawnActiveEnemy(bool isRightAnswer)
     {
-        activeEnemy.Die();
+        activeEnemy.Die(isRightAnswer);
     }
 }

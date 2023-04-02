@@ -22,15 +22,16 @@ public class Answer : MonoBehaviour
         IsRight = isRightAnswer;
         answerTMP.text = content;
         button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(EnemyManager._ins.DeSpawnActiveEnemy);
         button.onClick.AddListener(() => PlayResultAnimation(true));
         if (IsRight)
         {
             button.onClick.AddListener(UIManager.Instance.QuestionController.OnClickRightAnswer);
+            button.onClick.AddListener(() => EnemyManager._ins.DeSpawnActiveEnemy(true));
         }
         else
         {
             button.onClick.AddListener(UIManager.Instance.QuestionController.OnClickWrongAnswer);
+            button.onClick.AddListener(() => EnemyManager._ins.DeSpawnActiveEnemy(false));
         }
     }
 

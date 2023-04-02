@@ -117,7 +117,7 @@ public class GameManager : Singleton<GameManager>
     {
         Score += GameData.Instance.questionsData[QuestIndex - 1].score;
         rightAnswers++;
-        BonusPointFxManager.Spawn(score, Player.transform.position);
+        
         //NextQuest();
     }
 

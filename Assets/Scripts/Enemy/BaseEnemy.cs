@@ -120,8 +120,9 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         EnemyManager._ins.listAliveEnemy.Remove(this);
         EnemyManager._ins.AddToPoolEnemy(this);
     }
-    public virtual void Die()
+    public virtual void Die(bool isRightAnswer)
     {
+        if (isRightAnswer) GameManager.Instance.BonusPointFxManager.Spawn(question.score, transform.position);
         StartCoroutine(DieFx());
     }
     public void RandomQuestion()
