@@ -5,7 +5,16 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private BasePlayer player;
-    public BasePlayer Player => player;
+
+    public BasePlayer Player
+    {
+        get
+        {
+            if (player == null) player = FindObjectOfType<BasePlayer>();
+            return player;
+        }
+    }
+    public BonusPointFxManager BonusPointFxManager;
 
     private bool answering = false;
     public bool IsAnswering => answering;
@@ -48,10 +57,10 @@ public class GameManager : Singleton<GameManager>
         get => score;
         private set
         {
-            if (score != value)
+            /*if (score != value)
             {
                 if (!UIManager.IsNull) UIManager.Instance.SetScore(value);
-            }
+            }*/
             score = value;
         }
     }
@@ -108,6 +117,7 @@ public class GameManager : Singleton<GameManager>
     {
         Score += GameData.Instance.questionsData[QuestIndex - 1].score;
         rightAnswers++;
+        BonusPointFxManager.Spawn(score, Player.transform.position);
         //NextQuest();
     }
 
