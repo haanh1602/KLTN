@@ -1,11 +1,11 @@
-Shader "UI/UI Blur"
+﻿Shader "Custom/RenderFeature/KawaseBlur"
 {
-	Properties
-	{
-		_MainTex ("Texture", 2D) = "white" {}
-		_Size("Size", Range(0, 10)) = 1
-	}
-	SubShader
+    Properties
+    {
+        _MainTex ("Texture", 2D) = "white" {}
+    }
+
+    SubShader
     {
         Tags { "RenderType"="Opaque" }
         LOD 100
@@ -15,6 +15,7 @@ Shader "UI/UI Blur"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            // make fog work
             #pragma multi_compile_fog
 
             #include "UnityCG.cginc"
@@ -35,8 +36,7 @@ Shader "UI/UI Blur"
             sampler2D _MainTex;
             float4 _MainTex_TexelSize;
             float4 _MainTex_ST;
-            
-            float _Size;
+            float _offset;
 
             v2f vert (appdata v)
             {
@@ -46,13 +46,13 @@ Shader "UI/UI Blur"
                 return o;
             }
 
-            half4 frag (v2f input) : COLOR
+            fixed4 frag (v2f input) : SV_Target
             {
                 float2 res = _MainTex_TexelSize.xy;
-                float i = _Size;
+                float i = _offset;
     
-                half4 col; 
-                UNITY_INITIALIZE_OUTPUT(half4, col);
+                fixed4 col;    
+                UNITY_INITIALIZE_OUTPUT(fixed4, col);
                 col.rgb = tex2D( _MainTex, input.uv ).rgb;
                 col.rgb += tex2D( _MainTex, input.uv + float2( i, i ) * res ).rgb;
                 col.rgb += tex2D( _MainTex, input.uv + float2( i, -i ) * res ).rgb;
@@ -64,6 +64,5 @@ Shader "UI/UI Blur"
             }
             ENDCG
         }
-	}
+    }
 }
-

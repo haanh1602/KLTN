@@ -15,10 +15,9 @@ public class GameManager : Singleton<GameManager>
         }
     }
     public BonusPointFxManager BonusPointFxManager;
-
+    public int ID = 0;
     private bool answering = false;
     public bool IsAnswering => answering;
-
     private int questIndex = 0;
     private int maxQuest = 0;
     private int score = 0;
@@ -87,8 +86,9 @@ public class GameManager : Singleton<GameManager>
     }
 
     private void StartNewGame() {
+        ID = 0;
         GameData.Instance.ShuffleQuestionsDataList();
-        MaxQuest = GameData.Instance.questionsData.Count;
+        MaxQuest = 10;
         StartCoroutine(IECountTime());
     }
 

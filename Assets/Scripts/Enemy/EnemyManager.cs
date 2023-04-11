@@ -15,6 +15,7 @@ public class EnemyManager : MonoBehaviour
 
     public BaseEnemy activeEnemy = null;
 
+    private int totalEnemy = 0;
     private bool pause = false;
 
     public bool IsPause => pause;
@@ -56,7 +57,7 @@ public class EnemyManager : MonoBehaviour
     public BaseEnemy GetEnemy(BaseEnemy e)
     {
         BaseEnemy result=null;
-        for (int i=0;i< listBaseEnemy.Count; i++)
+        for (int i = 0;i< listBaseEnemy.Count; i++)
         {
             if (e.poolIndex == listBaseEnemy[i].poolIndex)
             {

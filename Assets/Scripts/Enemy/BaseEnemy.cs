@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using Random = UnityEngine.Random;
 
 public class BaseEnemy : MonoBehaviour, IBaseEnemy
@@ -80,7 +81,11 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     }
     public void Update()
     {
-        if (EnemyManager._ins.IsPause) return;
+        if (EnemyManager._ins.IsPause)
+        {
+            StopCoroutine(_coroutineMoveRandomLeftRight);
+            return;
+        } 
         
         if (FollowToPlayer())
         {
@@ -108,7 +113,6 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     {
         Renderer renderer = gameObject.GetComponent<Renderer>();
         renderer.material.SetFloat("_Edges", 0.2f);
-        Debug.LogError("Edge - " + renderer.material.GetFloat("_Edges"));
         for(float i = 0f; i <= 1f; i += 0.1f)
         {
             renderer.material.SetFloat("_Level", i);
@@ -126,8 +130,11 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     }
     public void RandomQuestion()
     {
-        int id = Random.RandomRange(0, GameData.Instance.questionsData.Count);
+        int id = GameManager.Instance.ID;
+        Debug.LogError("ID - " + id);
         question = GameData.Instance.questionsData[id];
+        GameManager.Instance.ID++;
+        question.answer = question.answer.OrderBy(x => Random.value).ToList();
         if (levelCircle) levelCircle.Init(GetQuestionLevel.FromDataString(question.qLevel));
     }
     public virtual void ResetPool()
