@@ -15,4 +15,6 @@ public class AvatarItem
 {
     public int ID;
     public string Description;
+    public bool isBought = true;
+    public int price;
 }

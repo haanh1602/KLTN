@@ -4034,6 +4034,10 @@ PrefabInstance:
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2172067284391622603, guid: fd5192f5ddd1a2640a67323f3eadc5ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520174951437895868, guid: fd5192f5ddd1a2640a67323f3eadc5ef, type: 3}
       propertyPath: m_SortingLayer
       value: -1
@@ -4042,9 +4046,17 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -217111733
       objectReference: {fileID: 0}
+    - target: {fileID: 2536202229249628985, guid: fd5192f5ddd1a2640a67323f3eadc5ef, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3029668424448455763, guid: fd5192f5ddd1a2640a67323f3eadc5ef, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912693122058813089, guid: fd5192f5ddd1a2640a67323f3eadc5ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4678761474948044717, guid: fd5192f5ddd1a2640a67323f3eadc5ef, type: 3}
       propertyPath: m_UpdateMode
@@ -5265,6 +5277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4486b2ba68c76b148885cb0df1455409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1737966230}
   uiAnimator: {fileID: 1773800710}
   questionController: {fileID: 1849067447}
   scoreTMP: {fileID: 978704410}
@@ -6435,6 +6448,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3944555744473240753, guid: b2d97f0b9e5133440a48b46e544e42c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5204054448998153051, guid: b2d97f0b9e5133440a48b46e544e42c5, type: 3}
       propertyPath: m_SortingLayer
       value: -1
@@ -6504,6 +6521,10 @@ PrefabInstance:
       value: CabbageChild
       objectReference: {fileID: 0}
     - target: {fileID: 8108627802511317524, guid: b2d97f0b9e5133440a48b46e544e42c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027039597851958372, guid: b2d97f0b9e5133440a48b46e544e42c5, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -7105,7 +7126,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1

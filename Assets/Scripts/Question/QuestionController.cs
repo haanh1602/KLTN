@@ -14,7 +14,7 @@ public class QuestionController : MonoBehaviour
     private RectTransform _imgRectTransform;
     private Vector2 _defaultSizeDelta;
 
-    public Action OnAnsweredQuestion = delegate { };
+    public Action OnAnsweredQuestion = delegate {};
 
     private void Awake()
     {
@@ -54,6 +54,7 @@ public class QuestionController : MonoBehaviour
     public void OnClickWrongAnswer()
     {
         Debug.Log("Wrong answer!");
+        UIManager.Instance.AnswerQuestion(false);
         GameManager.Instance.OnWrongClicked();
         foreach (var answer in answers)
         {
@@ -83,6 +84,7 @@ public class QuestionController : MonoBehaviour
     public void OnClickRightAnswer()
     {
         Debug.Log("Right answer!");
+        UIManager.Instance.AnswerQuestion(true);
         GameManager.Instance.OnRightClicked();
         DisableAnswerInteractable();
     }
