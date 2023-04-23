@@ -26,18 +26,6 @@ public class UIManager : Singleton<UIManager>
         questionIndexTMP.OnChangeText += uiAnimator.OnChangeQuestionThText;
         continueButton.onClick.AddListener(OnContinueButtonClick);
     }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetScore(int score)
     {

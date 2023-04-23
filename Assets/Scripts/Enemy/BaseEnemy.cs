@@ -37,8 +37,8 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         }
 
         Vector3 directionLine = transform.position - BasePlayer._ins.transform.position;
-        //Vector3 target = BasePlayer._ins.transform.position + directionLine.normalized * 0.3f;
-        Vector3 target = FindObjectOfType<BasePlayer>().transform.position + directionLine.normalized * 0.3f;
+        Vector3 target = BasePlayer._ins.transform.position + directionLine.normalized * 0.3f;
+        //Vector3 target = FindObjectOfType<BasePlayer>().transform.position + directionLine.normalized * 0.3f;
 
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
