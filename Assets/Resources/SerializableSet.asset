@@ -122,3 +122,80 @@ MonoBehaviour:
     wrong_answer_3: "12 s\u1ED1"
     level: H
     score: 3
+  - id: 10
+    question_1: "4m 4 dm = ................... cm. S\u1ED1 th\xEDch h\u1EE3p \u0111i\u1EC1n
+      v\xE0o ch\u1ED7 ch\u1EA5m l\xE0"
+    image: 
+    question_2: 
+    right_answer: 440
+    wrong_answer_1: 44
+    wrong_answer_2: 444
+    wrong_answer_3: 404
+    level: E
+    score: 1
+  - id: 11
+    question_1: "M\u1ED9t ng\u01B0\u1EDDi \u0111i b\u1ED9 trong 6 ph\xFAt \u0111i
+      \u0111\u01B0\u1EE3c 480 m. H\u1ECFi trong 9 ph\xFAt ng\u01B0\u1EDDi \u0111\xF3
+      \u0111i \u0111\u01B0\u1EE3c bao nhi\xEAu m \u0111\u01B0\u1EDDng (Qu\xE3ng \u0111\u01B0\u1EDDng
+      trong m\u1ED7i ph\xFAt \u0111i \u0111\u1EC1u nh\u01B0 nhau)?"
+    image: 
+    question_2: 
+    right_answer: 720m
+    wrong_answer_1: 640m
+    wrong_answer_2: 800m
+    wrong_answer_3: 900m
+    level: H
+    score: 3
+  - id: 12
+    question_1: "T\xECm x bi\u1EBFt: 8462 - x = 762"
+    image: 
+    question_2: 
+    right_answer: 7700
+    wrong_answer_1: 6700
+    wrong_answer_2: 7600
+    wrong_answer_3: 8700
+    level: N
+    score: 2
+  - id: 13
+    question_1: "S\u1ED1 nh\u1ECF nh\u1EA5t c\xF3 4 ch\u1EEF s\u1ED1 l\xE0:"
+    image: 
+    question_2: 
+    right_answer: 1000
+    wrong_answer_1: 1101
+    wrong_answer_2: 1001
+    wrong_answer_3: 999
+    level: E
+    score: 1
+  - id: 14
+    question_1: "T\u1EEB 5 ch\u1EEF s\u1ED1: 1, 2, 3, 4, 0 c\xF3 th\u1EC3 vi\u1EBFt
+      \u0111\u01B0\u1EE3c bao nhi\xEAu s\u1ED1 c\xF3 2 ch\u1EEF s\u1ED1 kh\xE1c nhau?"
+    image: 
+    question_2: 
+    right_answer: "16 s\u1ED1"
+    wrong_answer_1: "20 s\u1ED1"
+    wrong_answer_2: "12 s\u1ED1"
+    wrong_answer_3: "16 s\u1ED1"
+    level: N
+    score: 2
+  - id: 15
+    question_1: "Nh\xE0 em c\xF3 24 con g\xE0. S\u1ED1 v\u1ECBt nhi\u1EC1u h\u01A1n
+      s\u1ED1 g\xE0 l\xE0 2 con. H\u1ECFi nh\xE0 em c\xF3 bao nhi\xEAu con v\u1ECBt?"
+    image: 
+    question_2: 
+    right_answer: 26 con
+    wrong_answer_1: 22 con
+    wrong_answer_2: 20 con
+    wrong_answer_3: 28 con
+    level: E
+    score: 1
+  - id: 16
+    question_1: "M\u1EB9 sinh con khi m\u1EB9 25 tu\u1ED5i. H\u1ECFi khi con l\xEAn
+      9 tu\u1ED5i th\xEC m\u1EB9 bao nhi\xEAu tu\u1ED5i?"
+    image: 
+    question_2: 
+    right_answer: "34 tu\u1ED5i"
+    wrong_answer_1: "33 tu\u1ED5i"
+    wrong_answer_2: "35 tu\u1ED5i"
+    wrong_answer_3: "25 tu\u1ED5i"
+    level: E
+    score: 1

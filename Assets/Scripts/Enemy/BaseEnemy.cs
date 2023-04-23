@@ -112,15 +112,13 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     public IEnumerator DieFx()
     {
         Renderer renderer = gameObject.GetComponent<Renderer>();
-        renderer.material.SetFloat("_Edges", 0.2f);
-        for(float i = 0f; i <= 1f; i += 0.1f)
+        for(float i = 0f; i <= 1f; i += Time.deltaTime)
         {
-            renderer.material.SetFloat("_Level", i);
-            yield return new WaitForSeconds(.1f);
+            renderer.material.SetFloat("_DissolveAmount", i);
+            yield return new WaitForSeconds(Time.deltaTime);
         }
         this.gameObject.SetActive(false);
-        renderer.material.SetFloat("_Edges", 0f);
-        renderer.material.SetFloat("_Level", 0f);
+        renderer.material.SetFloat("_DissolveAmount", 0f);
         EnemyManager._ins.listAliveEnemy.Remove(this);
         EnemyManager._ins.AddToPoolEnemy(this);
     }
