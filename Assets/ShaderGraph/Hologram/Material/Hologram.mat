@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UIBlur
-  m_Shader: {fileID: 4800000, guid: eed3ece10d3b3404e8b077c5851019b9, type: 3}
+  m_Name: Hologram
+  m_Shader: {fileID: -6465566751694194690, guid: 63d047fe4fec91444b657547d4a38752, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,23 +19,15 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Bloom:
+    - Texture2D_D52397A5:
+        m_Texture: {fileID: 2800000, guid: 429ec31e89227a843b7b0e6e5047b82d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: f7c2d1d614c8aaf40b54dcad1fb60305, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -43,8 +35,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HologramTex:
+        m_Texture: {fileID: 2800000, guid: 429ec31e89227a843b7b0e6e5047b82d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1a88a91e1f992884d9cd37a605844c64, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -55,7 +51,11 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
+    - _SampleTexture2D_91296477697247079475e4c4ff6ce555_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 1a88a91e1f992884d9cd37a605844c64, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -72,43 +72,51 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - BlurX: 0.00952
-    - BlurY: 0.00942
-    - _BlurSize: 0.058
-    - _BumpAmt: 0
+    - Vector1_4258C632: 1
+    - Vector1_B847FAE5: 10
+    - _AlphaClip: 0
+    - _Blend: 0
     - _BumpScale: 1
-    - _ColorDrift: 0.352
+    - _Cull: 2
     - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FlipX: 0
-    - _FlipY: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _HorizontalShake: 0.11900001
-    - _Intensity: 1
+    - _EnvironmentReflections: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
     - _Metallic: 0
-    - _Mode: 0
-    - _MotionBlurAngle: 0.526
-    - _MotionBlurDist: 0
-    - _Multiplier: 0.563
     - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _ScanLineJitte: 0.336
-    - _Size: 4.57
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Speed: 0.5
     - _SrcBlend: 1
-    - _StandardDeviation: 0.011
-    - _UVSec: 0
-    - _VerticalJump: 0.344
+    - _Surface: 0
+    - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_5A29FF9E: {r: 0, g: 0.31413612, b: 1, a: 1}
+    - Color_9DC7EC12: {r: 0.0047715902, g: 1, b: 0, a: 1}
+    - Color_BB588D2D: {r: 0, g: 105.33285, b: 140.4438, a: 1}
+    - Vector2_2181DF03: {r: 1, g: 20, b: 0, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorDrift: {r: 0.0234, g: 8061.6304, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ScanLineJitte: {r: 0, g: 0, b: 0, a: 0}
-    - _ScanLineJitter: {r: 0.014621801, g: 0.24159993, b: 0, a: 0}
-    - _VerticalJump: {r: 0.612, g: 25.260914, b: 0, a: 0}
+    - _HologramColor: {r: 0, g: 6.008709, b: 18.026127, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &2215490529994567070
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
