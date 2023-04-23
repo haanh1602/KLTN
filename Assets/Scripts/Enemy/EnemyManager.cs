@@ -74,8 +74,6 @@ public class EnemyManager : MonoBehaviour
             List<BaseEnemy> newList = new List<BaseEnemy>();
             newList.Add(result);
             listEnemyPool.Add(newList);
-
-
         }
 
         return result;
@@ -97,6 +95,7 @@ public class EnemyManager : MonoBehaviour
         {
             GameObject enemyObj = Instantiate(listBaseEnemy[id].gameObject, transformCache);
             result = enemyObj.GetComponent<BaseEnemy>();
+            listAliveEnemy.Add(result);
         }
         
         return result;
@@ -131,8 +130,28 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void DeSpawnActiveEnemy()
+    public void DeSpawnActiveEnemy(bool isRightAnswer)
     {
-        activeEnemy.Die();
+        activeEnemy.Die(isRightAnswer);
+    }
+
+    public BaseEnemy GetNearestEnemyList(Vector3 playerPosition, out float sqrDistance)
+    {
+        sqrDistance = 0f;
+        int index = -1;
+        float min = 1000000f;
+        Debug.Log(listAliveEnemy.Count);
+        for (int i = 0; i < listAliveEnemy.Count; i++)
+        {
+            float sqrdDistance = (listAliveEnemy[i].transform.position - playerPosition).sqrMagnitude;
+            if (sqrdDistance < min)
+            {
+                index = i;
+                min = sqrdDistance;
+                sqrDistance = sqrdDistance;
+            }
+        }
+        if (index < 0) return null;
+        return listAliveEnemy[index];
     }
 }

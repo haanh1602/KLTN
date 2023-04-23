@@ -5,6 +5,6 @@ using UnityEngine;
 public interface IBaseEnemy 
 {
     void Move();
-    void Die();
+    void Die(bool isRightAnswer);
     void ResetPool();
 }

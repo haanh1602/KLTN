@@ -172,10 +172,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleGroup: {fileID: 393781842}
   listLevelButton:
-  - {fileID: 1797997289}
-  - {fileID: 798585518712746974}
-  - {fileID: 798585517690460383}
   - {fileID: 798585519324116792}
+  - {fileID: 798585517690460383}
+  - {fileID: 798585518712746974}
+  - {fileID: 1797997289}
 --- !u!114 &393781842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16760,26 +16760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Loading
       objectReference: {fileID: 0}
-    - target: {fileID: 8391087837552050558, guid: 9b62405549a8b034aae2cab93e9505d0, type: 3}
-      propertyPath: m_Color.a
-      value: 0.39215687
+    - target: {fileID: 8391087837433035798, guid: 9b62405549a8b034aae2cab93e9505d0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8391087837552050558, guid: 9b62405549a8b034aae2cab93e9505d0, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8391087837552050558, guid: 9b62405549a8b034aae2cab93e9505d0, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8391087837552050558, guid: 9b62405549a8b034aae2cab93e9505d0, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8391087837552050558, guid: 9b62405549a8b034aae2cab93e9505d0, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: b89fe5ba919488448932eec0a1caf6fb, type: 2}
     - target: {fileID: 8391087838528248600, guid: 9b62405549a8b034aae2cab93e9505d0, type: 3}
       propertyPath: m_text
       value: Loading

@@ -38,6 +38,8 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
 
         Vector3 directionLine = transform.position - BasePlayer._ins.transform.position;
         Vector3 target = BasePlayer._ins.transform.position + directionLine.normalized * 0.3f;
+        //Vector3 target = FindObjectOfType<BasePlayer>().transform.position + directionLine.normalized * 0.3f;
+
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 
@@ -122,8 +124,9 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         EnemyManager._ins.listAliveEnemy.Remove(this);
         EnemyManager._ins.AddToPoolEnemy(this);
     }
-    public virtual void Die()
+    public virtual void Die(bool isRightAnswer)
     {
+        if (isRightAnswer) GameManager.Instance.BonusPointFxManager.Spawn(question.score, transform.position);
         StartCoroutine(DieFx());
     }
     public void RandomQuestion()

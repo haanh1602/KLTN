@@ -8,6 +8,8 @@ public class UILevelMapManager : MonoBehaviour
     [SerializeField] private ToggleGroup toggleGroup;
     [SerializeField] private List<UILevelButton> listLevelButton = new List<UILevelButton>();
 
+    public List<UILevelButton> ListLevelButton => listLevelButton;
+    
     private void Awake()
     {
         toggleGroup.allowSwitchOff = true;
