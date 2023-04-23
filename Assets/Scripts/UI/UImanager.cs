@@ -42,7 +42,7 @@ public class UImanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //OpenPopupPerk(new List<int> { 5, 6, 7 });
+        
     }
 
     public void SelectPerk(int idPerk)

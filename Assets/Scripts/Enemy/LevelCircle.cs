@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,18 @@ public class LevelCircle : MonoBehaviour
     public ParticleSystem PS_InnerCircle;
     public ParticleSystem PS_OuterCircle;
     public ParticleSystem PS_Bling;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     public void Init(QuestionLevel questionLevel)
     {

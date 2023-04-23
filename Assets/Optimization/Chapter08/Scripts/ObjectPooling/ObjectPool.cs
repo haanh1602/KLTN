@@ -1,46 +1,31 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class ObjectPool<T> where T : IPoolableObject, new() {
+public class ObjectPool : MonoBehaviour 
+{
+    public static ObjectPool Instance;
+    public List<GameObject> Pool;
+    [SerializeField] private GameObject objectToPool;
+    [SerializeField] private int amountToPool;	
 
-    private Stack<T> _pool;
-    private int _currentIndex = 0;
-
-    public ObjectPool(int initialCapacity) {
-        _pool = new Stack<T>(initialCapacity);
-        for (int i = 0; i < initialCapacity; ++i) {
-            Spawn(); // instantiate a pool of N objects
-        }
-        Reset();
+    void Awake() 
+    { 
+        Instance = this;
     }
 
-    public int Count
+    private GameObject player;
+    
+    void Start() 
     {
-        get { return _pool.Count; }
-    }
-
-    public int NumActive
-    {
-        get { return _currentIndex; }
-    }
-
-    public void Reset() {
-        _currentIndex = 0;
-    }
-
-    public T Spawn() {
-        if (_currentIndex < Count) {
-            T obj = _pool.Peek();
-            _currentIndex++;
-            IPoolableObject po = obj as IPoolableObject;
-            po.Respawn();
-            return obj;
-        } else {
-            T obj = new T();
-            _pool.Push(obj);
-            _currentIndex++;
-            IPoolableObject po = obj as IPoolableObject;
-            po.New();
-            return obj;
+        for (int i = 0; i < amountToPool; ++i)
+        {
+            GameObject go = Instantiate(objectToPool, transform);
+            go.SetActive(false);
+            Pool.Add(go);
+            
+            SpriteRenderer sr = player.GetComponent<SpriteRenderer>();
+            
         }
     }
+
 }

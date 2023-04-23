@@ -74,8 +74,6 @@ public class EnemyManager : MonoBehaviour
             List<BaseEnemy> newList = new List<BaseEnemy>();
             newList.Add(result);
             listEnemyPool.Add(newList);
-
-
         }
 
         return result;
