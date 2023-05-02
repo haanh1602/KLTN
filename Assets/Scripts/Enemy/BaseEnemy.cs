@@ -13,6 +13,9 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     private bool _isRandomMoveMode = false;
     private float _timeMoveRandomLeftRight = 1f;
     private Coroutine _coroutineMoveRandomLeftRight;
+
+    public QuestionLevel level;
+    
     public QuestionData question;
 
     [SerializeField] private LevelCircle levelCircle;
@@ -21,7 +24,8 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
 
     void Start()
     {
-        RandomQuestion();
+        //RandomQuestion();
+        if (levelCircle) levelCircle.Init(level);
     }
    
     public virtual void Move()
@@ -35,7 +39,6 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180f, transform.eulerAngles.z);
         }
-
         Vector3 directionLine = transform.position - BasePlayer._ins.transform.position;
         Vector3 target = BasePlayer._ins.transform.position + directionLine.normalized * 0.3f;
         //Vector3 target = FindObjectOfType<BasePlayer>().transform.position + directionLine.normalized * 0.3f;
@@ -55,6 +58,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         int randomAction = UnityEngine.Random.Range(0, 2);
         Vector3 nextPos;
 
+        //SetFaceDirect();
         while (gameObject.activeInHierarchy)
         {
             if (timer >= _timeMoveRandomLeftRight)
@@ -69,10 +73,14 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
                     case 0:
                         nextPos = Vector3.left * speed * Time.deltaTime;
                         transform.position += nextPos;
+                        //Face
+                        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
                         break;
                     case 1:
                         nextPos = Vector3.right * speed * Time.deltaTime;
                         transform.position += nextPos;
+                        //Face
+                        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180f, transform.eulerAngles.z);
                         break;
                 }
             }
@@ -85,7 +93,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     {
         if (EnemyManager._ins.IsPause)
         {
-            StopCoroutine(_coroutineMoveRandomLeftRight);
+            if (_coroutineMoveRandomLeftRight != null) StopCoroutine(_coroutineMoveRandomLeftRight);
             return;
         } 
         
@@ -122,7 +130,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         this.gameObject.SetActive(false);
         renderer.material.SetFloat("_DissolveAmount", 0f);
         EnemyManager._ins.listAliveEnemy.Remove(this);
-        EnemyManager._ins.AddToPoolEnemy(this);
+        //EnemyManager._ins.AddToPoolEnemy(this);
     }
     public virtual void Die(bool isRightAnswer)
     {
@@ -136,12 +144,26 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         question = GameData.Instance.questionsData[id];
         GameManager.Instance.ID++;
         question.answer = question.answer.OrderBy(x => Random.value).ToList();
-        if (levelCircle) levelCircle.Init(GetQuestionLevel.FromDataString(question.qLevel));
+        if (levelCircle) levelCircle.Init(question.QuestLevel());
     }
+
+    public void TakeQuestion()
+    {
+        question = GameManager.Instance.QuestHandle.TakeAQuestionData(level);
+        if (question == null)
+        {
+            Debug.LogError("Lỗi không thể takeQuestion!");
+            return;
+        }
+        int id = question.id;
+        Debug.Log("<color=green>Quest ID</color> - " + id + " - " + level);
+        question.answer = question.answer.OrderBy(x => Random.value).ToList();
+    }
+
     public virtual void ResetPool()
     {
-        gameObject.SetActive(true);
-        RandomQuestion();
+        /*gameObject.SetActive(true);
+        RandomQuestion();*/
     }
 
     public void StopMove()

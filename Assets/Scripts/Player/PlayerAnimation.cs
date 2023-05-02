@@ -4,8 +4,12 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private Direction _direction;
+    private Vector2 _v2Direction;
     [SerializeField] public Animator anim;
     [SerializeField] private Direction defaultDirection;
+
+    [SerializeField] private Transform spritesContainer;
+    
     private void Awake()
     {
         _direction = defaultDirection;
@@ -18,9 +22,9 @@ public class PlayerAnimation : MonoBehaviour
 
     void Update()
     {
-        Vector2 v2Direction = UIGameManager._ins.joystick.Direction;
-        Direction currentDirection = GetDirection.FromVector2(v2Direction);
-        anim.SetFloat("Speed", v2Direction.magnitude);
+        _v2Direction = UIGameManager._ins.joystick.Direction;
+        Direction currentDirection = GetDirection.FromVector2(_v2Direction);
+        anim.SetFloat("Speed", _v2Direction.magnitude);
         if (_direction != currentDirection)
         {
             SetAnim(currentDirection);
@@ -29,17 +33,17 @@ public class PlayerAnimation : MonoBehaviour
 
     private void SetAnim(Direction direction)
     {
-        Quaternion rotation = transform.rotation;
+        Quaternion rotation = spritesContainer.rotation;
 
         switch (direction)
         {
             case Direction.Left:
                 rotation.y = 0f;
-                transform.rotation = rotation;
+                spritesContainer.rotation = rotation;
                 break;
             case Direction.Right:
                 rotation.y = 180f;
-                transform.rotation = rotation;
+                spritesContainer.rotation = rotation;
                 break;
         }
 
@@ -62,13 +66,8 @@ public class GetDirection
         {
             return Direction.None;
         }
-
-        if (Mathf.Abs(v2Direction.x) >= Mathf.Abs(v2Direction.y))
-        {
-            return v2Direction.x >= 0f ? Direction.Right : Direction.Left;
-        }
-
-        return Direction.None;
+        
+        return v2Direction.x >= 0f ? Direction.Right : Direction.Left;
     }
 }
 

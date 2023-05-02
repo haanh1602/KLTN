@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolIndex: 7
+  level: 1
   levelCircle: {fileID: 9177336783593669761}
   fxDie: {fileID: 330991355212136114, guid: b6b018680057f884aba134cf42649927, type: 3}
 --- !u!1001 &3990531000676247694

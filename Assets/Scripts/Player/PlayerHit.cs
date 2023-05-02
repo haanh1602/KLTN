@@ -18,6 +18,7 @@ public class PlayerHit : MonoBehaviour
         if (collision.gameObject.tag.Equals("Enemy"))
         {
             BaseEnemy enemy = collision.gameObject.GetComponent<BaseEnemy>();
+            enemy.TakeQuestion();
             OnHitEnemy?.Invoke(enemy);
         }
 

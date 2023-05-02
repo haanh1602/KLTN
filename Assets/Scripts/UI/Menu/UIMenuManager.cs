@@ -35,7 +35,8 @@ public class UIMenuManager : MonoBehaviour
         btnStart.onClick.AddListener(() =>
         {
             AudioManager.Instance.PlaySound(0);
-            StartCoroutine(_IELoadingInGame("Level"));
+            //StartCoroutine(_IELoadingInGame("Level"));
+            SceneController.Instance.LoadScene("Level");
         });
         
         btnDailyGift.onClick.RemoveAllListeners();
@@ -71,7 +72,8 @@ public class UIMenuManager : MonoBehaviour
     {
         Debug.LogWarning("____ Starting level " + level);
         AudioManager.Instance.PlaySound(0);
-        StartCoroutine(_IELoadingInGame("Level"));
+        //StartCoroutine(_IELoadingInGame("Level"));
+        SceneController.Instance.LoadScene("Level");
         GameData.Instance.PlayingLevel = level;
     }
 }

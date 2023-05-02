@@ -50,7 +50,7 @@ public class UILevelButton : MonoBehaviour
     public void Init(int level)
     {
         this.level = level;
-        tmpLevel.text = level.ToString();
+        tmpLevel.text = "Bài " + level.ToString();
         toggle.interactable = level <= GameData.Instance.LevelUnlock;
     }
 

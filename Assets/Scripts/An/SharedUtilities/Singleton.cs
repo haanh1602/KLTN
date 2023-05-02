@@ -1,53 +1,27 @@
+using System;
 using UnityEngine;
 
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
-
-    private static object _lock = new object ();
-
     public static T Instance {
         get {
-            if (applicationIsQuitting) {
-                Debug.LogWarning ("[Singleton] Instance '" + typeof(T) +
-                                  "' already destroyed on application quit." +
-                                  " Won't create again - returning null.");
-                return _instance;
-            }
-
-            lock (_lock) {
-                if (_instance == null) {
-                    _instance = (T)FindObjectOfType (typeof(T));
-
-                    if (FindObjectsOfType (typeof(T)).Length > 1) {
-                        Debug.LogError ("[Singleton] Something went really wrong "+
-                                        " - there should never be more than 1 singleton!" +
-                                        " Reopenning the scene might fix it.");
-                        return _instance;
-                    }
-
-                    if (_instance == null) {
-                        GameObject singleton = new GameObject ();
-                        _instance = singleton.AddComponent<T>();
-                        singleton.name ="(singleton)" + typeof(T).ToString();
-
-                        DontDestroyOnLoad (singleton);
-                        
-                    } else {
-                        
-                    }
+            if (_instance == null) {
+                var objs = FindObjectsOfType (typeof(T)) as T[];
+                if (objs.Length > 0)
+                    _instance = objs[0];
+                if (objs.Length > 1) {
+                    Debug.LogError ("There is more than one " + typeof(T).Name + " in the scene.");
                 }
-
-                return _instance;
+                if (_instance == null) {
+                    GameObject obj = new GameObject ();
+                    obj.hideFlags = HideFlags.HideAndDontSave;
+                    _instance = obj.AddComponent<T> ();
+                }
             }
+            return _instance;
         }
     }
 
     public static bool IsNull => _instance == null;
-
-    private static bool applicationIsQuitting = false;
-    public void OnDestroy ()
-    {
-        applicationIsQuitting = true;
-    }
 }

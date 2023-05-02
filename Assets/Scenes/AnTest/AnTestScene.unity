@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &241577537
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4037983281378138776, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
+      propertyPath: m_Name
+      value: LightFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037983281378138778, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037983281378138778, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037983281378138778, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037983281378138778, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037983281378138778, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037983281378138778, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037983281378138778, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037983281378138778, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037983281378138778, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037983281378138778, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037983281378138778, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4eabf9b72a6e5324d825d9a885f1f3f7, type: 3}
 --- !u!1 &664005736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,6 +1197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99a6e8d2ae3ba549863874e70972bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RectTransform: {fileID: 0}
   pointTmp: {fileID: 1046189640}
   pointDOT: {fileID: 1046189644}
   moveSpeed: 10
@@ -1485,6 +1543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99a6e8d2ae3ba549863874e70972bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RectTransform: {fileID: 0}
   pointTmp: {fileID: 0}
   pointDOT: {fileID: 0}
   moveSpeed: 20
@@ -1746,7 +1805,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 1
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1

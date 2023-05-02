@@ -3,24 +3,25 @@ using UnityEngine;
 
 public class NotifyUI : Singleton<NotifyUI>
 {
-    [SerializeField] private GameObject loadingGO;
+    [SerializeField] private Animator loadingGO;
     [SerializeField] private GameObject fullscreenGO;
     
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        if (loadingGO) DisableLoading();
+        if (loadingGO) loadingGO.gameObject.SetActive(false);
         if (fullscreenGO) DisableFullScreen();
     }
 
     public void ShowLoading()
     {
         loadingGO.gameObject.SetActive(true);
+        loadingGO.Play("loading_fadein", 0,0f);
     }
 
     public void DisableLoading()
     {
-        loadingGO.gameObject.SetActive(false);
+        loadingGO.Play("loading_fadeout", 0,0f);
     }
     
     public void ShowFullScreen()

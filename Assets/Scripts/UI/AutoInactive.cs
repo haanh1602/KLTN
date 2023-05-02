@@ -6,11 +6,11 @@ public class AutoInactive : MonoBehaviour
 {
     public void Inactive()
     {
-        gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void Active()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
     }
 }

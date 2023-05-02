@@ -5,7 +5,9 @@ using Character;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    public const int MAX_ENEMY = 10;
+    
+    
+    /*public const int MAX_ENEMY = 10;
 
     private int wave = 0;
 
@@ -78,5 +80,5 @@ public class SpawnEnemy : MonoBehaviour
 
         }
         
-    }
+    }*/
 }

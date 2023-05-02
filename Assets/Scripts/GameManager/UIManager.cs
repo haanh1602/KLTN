@@ -49,8 +49,9 @@ public class UIManager : Singleton<UIManager>
 
     public void ShowContinueButton()
     {
-        if (GameManager.Instance.QuestIndex == GameManager.Instance.MaxQuest)
+        if (GameManager.Instance.QuestIndex == GameManager.Instance.MaxQuest || !GameManager.Instance.Pass)
         {
+            GameManager.Instance.Player.HideWarning();
             continueButtonTMP.text = "KẾT THÚC HÀNH TRÌNH";
             continueButton.onClick.RemoveAllListeners();
             continueButton.onClick.AddListener(() =>
@@ -77,7 +78,7 @@ public class UIManager : Singleton<UIManager>
 
     private void OnFinishGameClick()
     {
-        endgamePanel.Init(GameManager.Instance.RightAnswers, GameManager.Instance.WrongAnswers, 
+        endgamePanel.Init(GameManager.Instance.Pass, GameManager.Instance.RightAnswers, GameManager.Instance.WrongAnswers, 
             GameManager.Instance.TimeLapse, GameManager.Instance.Score);
         endgamePanel.Show();
     }

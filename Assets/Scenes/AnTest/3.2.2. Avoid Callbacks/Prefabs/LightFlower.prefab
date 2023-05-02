@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d3540db09356240b2ba707532abba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLightRange: 4
-  DefaultLightRange: 0.5
+  MaxLightRange: 3
+  DefaultLightRange: 0
 --- !u!114 &4037983281378138788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,8 +115,8 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.7
   m_Color: {r: 1, g: 0.9858186, b: 0.56037736, a: 1}
-  m_Intensity: 0.4
-  m_LightVolumeOpacity: 0.2
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0.1
   m_ApplyToSortingLayers: 11bb7d9e4b230ff3000000003f1883c7
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
@@ -126,8 +126,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.25
-  m_PointLightOuterRadius: 0.5
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 0
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5

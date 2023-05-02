@@ -78,6 +78,11 @@ public class QuestionData
         this.questionTexture2D = data.questionTexture2D;
         this.answer = data.answer;
     }
+
+    public QuestionLevel QuestLevel()
+    {
+        return GetQuestionLevel.FromDataString(qLevel);
+    }
 }
 
 public class AnswerData
