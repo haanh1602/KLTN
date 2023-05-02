@@ -3,25 +3,42 @@ using UnityEngine;
 
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static T _instance;
-    public static T Instance {
-        get {
-            if (_instance == null) {
-                var objs = FindObjectsOfType (typeof(T)) as T[];
-                if (objs.Length > 0)
-                    _instance = objs[0];
-                if (objs.Length > 1) {
-                    Debug.LogError ("There is more than one " + typeof(T).Name + " in the scene.");
-                }
-                if (_instance == null) {
-                    GameObject obj = new GameObject ();
-                    obj.hideFlags = HideFlags.HideAndDontSave;
-                    _instance = obj.AddComponent<T> ();
+    public static bool IsNull => _instance == null;
+	
+    protected static T _instance;
+
+    /// <summary>
+    /// Singleton design pattern
+    /// </summary>
+    /// <value>The instance.</value>
+    public static T Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<T>();
+                if (_instance == null)
+                {
+                    GameObject obj = new GameObject();
+                    //obj.hideFlags = HideFlags.HideAndDontSave;
+                    _instance = obj.AddComponent<T>();
                 }
             }
             return _instance;
         }
     }
 
-    public static bool IsNull => _instance == null;
+    /// <summary>
+    /// On awake, we initialize our instance. Make sure to call base.Awake() in override if you need awake.
+    /// </summary>
+    protected virtual void Awake()
+    {
+        _instance = this as T;
+    }
+
+    private void OnDestroy()
+    {
+        _instance = null;
+    }
 }
