@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using An.Optimization;
 using DG.Tweening;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public class BasePlayer : MonoBehaviour
     [SerializeField] private Material DefaultMaterial;
     [SerializeField] private Material HoloMaterial;
 
+    [SerializeField] private EnemyDirect enemyDirect;
+    
     [SerializeField] private DOTweenAnimation warningDOT;
     
     public float exp;
@@ -28,6 +31,11 @@ public class BasePlayer : MonoBehaviour
     public void Die()
     {
         UImanager._ins.GameOver();
+    }
+
+    public void HideEnemyDirect()
+    {
+        enemyDirect.gameObject.SetActive(false);
     }
 
     public void ChangeMaterial()
@@ -59,17 +67,20 @@ public class BasePlayer : MonoBehaviour
         }
     }
 
+    private bool startWarning = false;
+    
     private Coroutine showWarningCoroutine = null;
     IEnumerator IEShowWarning()
     {
-        yield return new WaitUntil(() => !GameManager.IsAnswering);
+        if (!startWarning) yield return new WaitUntil(() => !GameManager.IsAnswering);
+        startWarning = true;
         yield return new WaitForSeconds(0.5f);
         if (GameManager.IsAnswering) yield break;   // Nếu đang trả lời câu mới thì tắt
         warningDOT.DORestartById("warning_open");
         _isShowingWarning = true;
-        yield return new WaitForSeconds(8f);
+        /*yield return new WaitForSeconds(8f);
         if (_isShowingWarning) warningDOT.DORestartById("warning_close");
-        _isShowingWarning = false;
+        _isShowingWarning = false;*/
     }
 
     private bool _isShowingWarning = false;

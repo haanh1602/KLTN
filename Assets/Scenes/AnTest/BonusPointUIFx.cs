@@ -7,7 +7,7 @@ using UnityEngine;
 public class BonusPointUIFx : MonoBehaviour
 {
     private int _point = 0;
-    public RectTransform RectTransform;
+    //public RectTransform RectTransform;
     [SerializeField] private TextMeshProUGUI pointTmp;
     [SerializeField] private DOTweenAnimation pointDOT;
 
@@ -19,7 +19,7 @@ public class BonusPointUIFx : MonoBehaviour
 
     private void Awake()
     {
-        if (!RectTransform) RectTransform = GetComponent<RectTransform>();
+        //if (!RectTransform) RectTransform = GetComponent<RectTransform>();
     }
 
     public static Transform Destination
@@ -35,7 +35,7 @@ public class BonusPointUIFx : MonoBehaviour
     public void Init(int point)
     {
         _point = point;
-        pointTmp.text = "+ " + _point;
+        pointTmp.text = "+" + _point;
         gameObject.SetActive(true);
         pointDOT.DORestartById("show_bonus_point");
     }
@@ -45,7 +45,7 @@ public class BonusPointUIFx : MonoBehaviour
         moving = true;
     }
 
-    public float moveSpeed = 10f;
+    /*public float moveSpeed = 10f;
     private void Update()
     {
         if (Destination && moving)
@@ -59,13 +59,19 @@ public class BonusPointUIFx : MonoBehaviour
                 OnMovingToDes(_point);
             }
         }
+    }*/
+
+    public void OnMovingToDes()
+    {
+        MessageDispatcher.SendMessage(this, BonusPointUIMessageKey.AddBonusPoint, _point, 0f);
+        moving = false;
+        /*gameObject.SetActive(false);
+        OnComplete?.Invoke(this);*/
+        Inactive();
     }
 
-    public void OnMovingToDes(int point)
+    public void Inactive()
     {
-        MessageDispatcher.SendMessage(this, BonusPointUIMessageKey.AddBonusPoint, point, 0f);
-        moving = false;
         gameObject.SetActive(false);
-        OnComplete?.Invoke(this);
     }
 }

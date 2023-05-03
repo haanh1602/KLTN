@@ -74,7 +74,7 @@ public class UILevelButton : MonoBehaviour, IPointerClickHandler
         AudioManager.Instance.PlayOnClick();
         if (!toggle.IsInteractable())
         {
-            Debug.Log("Chưa mở khóa!");
+            NotifyUI.Instance.ShowToast("Màn chơi chưa mở khóa!");
         }
     }
 }

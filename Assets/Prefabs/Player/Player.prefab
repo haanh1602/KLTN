@@ -437,7 +437,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   HoloMaterial: {fileID: 2100000, guid: 990a06ffeda43734e864d545330e132e, type: 2}
-  warningDOT: {fileID: 0}
+  enemyDirect: {fileID: 557953013861107894}
+  warningDOT: {fileID: 313834049921853958}
   exp: 0
   level: 1
 --- !u!114 &1339876379734827890
@@ -793,6 +794,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b9ef1e4d9390b547ac9cead82c9a9e3, type: 3}
+--- !u!114 &313834049921853958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3203170643948780839, guid: 8b9ef1e4d9390b547ac9cead82c9a9e3, type: 3}
+  m_PrefabInstance: {fileID: 2893849583258244897}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6073832090657573000 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8963169062608068521, guid: 8b9ef1e4d9390b547ac9cead82c9a9e3, type: 3}
@@ -864,3 +876,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2963394077110835312, guid: f84bddb53195c91488cbf5310cc2c86d, type: 3}
   m_PrefabInstance: {fileID: 3359166872342548679}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &557953013861107894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2963394077110835313, guid: f84bddb53195c91488cbf5310cc2c86d, type: 3}
+  m_PrefabInstance: {fileID: 3359166872342548679}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401f56efa5174be41a0e672dea244827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

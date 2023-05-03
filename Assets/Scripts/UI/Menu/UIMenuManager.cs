@@ -26,11 +26,7 @@ public class UIMenuManager : MonoBehaviour
     private void Awake()
     {
         txtGold.SetText($"{PlayerPrefs.GetInt(Constant.PrefKeys.KEY_GOLD, 0)}");
-        
-        //Global Setting Game
-        Application.targetFrameRate = 60;
-        Time.timeScale = 1f;
-        
+
         btnStart.onClick.RemoveAllListeners();
         btnStart.onClick.AddListener(() =>
         {

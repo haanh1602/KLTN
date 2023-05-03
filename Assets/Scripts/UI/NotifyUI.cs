@@ -1,10 +1,13 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class NotifyUI : Singleton<NotifyUI>
 {
     [SerializeField] private Animator loadingGO;
     [SerializeField] private GameObject fullscreenGO;
+    [SerializeField] private Animator toastAnimator;
+    [SerializeField] private TextMeshProUGUI toastTMP;
     
     private void Awake()
     {
@@ -32,5 +35,12 @@ public class NotifyUI : Singleton<NotifyUI>
     public void DisableFullScreen()
     {
         fullscreenGO.gameObject.SetActive(false);
+    }
+
+    public void ShowToast(string content)
+    {
+        toastTMP.text = content;
+        toastAnimator.gameObject.SetActive(true);
+        toastAnimator.Play("LockingToast", 0, 0f);
     }
 }

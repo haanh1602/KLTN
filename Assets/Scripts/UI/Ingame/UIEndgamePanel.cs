@@ -29,12 +29,12 @@ public class UIEndgamePanel : MonoBehaviour
         passTMP.gameObject.SetActive(pass);
         loseTMP.gameObject.SetActive(!pass);
         
-        rightAnswersTMP.text = $"SỐ CÂU ĐÚNG: <color=#2DFF26>{rightAnswer}</color>";
-        wrongAnswersTMP.text = $"SỐ CÂU SAI: <color=#FF2626>{wrongAnswers}</color>";
-        timeTMP.text = "THỜI GIAN HOÀN THÀNH:\n" + timeBySecond / 60 + " phút " + timeBySecond % 60 + " giây";
+        rightAnswersTMP.text = $"SỐ CÂU ĐÚNG:   <color=#2DFF26><b>{rightAnswer}</b></color>";
+        wrongAnswersTMP.text = $"SỐ CÂU SAI:    <color=#FF2626><b>{wrongAnswers}</b></color>";
+        timeTMP.text = "THỜI GIAN HOÀN THÀNH:\n<b>" + timeBySecond / 60 + " phút " + timeBySecond % 60 + " giây</b>";
 
         reward = pass ? reward : 0;
-        rewardTMP.text = "PHẦN THƯỞNG:  " + reward;
+        rewardTMP.text = "PHẦN THƯỞNG:  <b>" + reward + "</b>";
 
         PlayerPrefs.SetInt(Constant.PrefKeys.KEY_GOLD, PlayerPrefs.GetInt(Constant.PrefKeys.KEY_GOLD, 0) + reward);
     }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
-    [SerializeField] private GameObject Player;
+    [SerializeField] private BasePlayer player;
     [SerializeField] private UIAnimator uiAnimator;
     [SerializeField] private QuestionController questionController;
     [SerializeField] private MyTextMeshProUGUI scoreTMP;
@@ -19,12 +19,11 @@ public class UIManager : Singleton<UIManager>
 
     public QuestionController QuestionController => questionController;
     public UIAnimator UIAnimator => uiAnimator;
-    private Animator animPlayer;
+    [SerializeField] private Animator animPlayer;
 
     protected override void Awake()
     {
         base.Awake();
-        animPlayer = Player.GetComponent<Animator>();
         scoreTMP.OnChangeText += uiAnimator.OnChangeScoreText;
         questionIndexTMP.OnChangeText += uiAnimator.OnChangeQuestionThText;
         continueButton.onClick.AddListener(OnContinueButtonClick);
@@ -60,6 +59,7 @@ public class UIManager : Singleton<UIManager>
         if (GameManager.Instance.QuestIndex == GameManager.Instance.MaxQuest || !GameManager.Instance.Pass)
         {
             GameManager.Instance.Player.HideWarning();
+            player.HideEnemyDirect();
             continueButtonTMP.text = "KẾT THÚC HÀNH TRÌNH";
             continueButton.onClick.RemoveAllListeners();
             continueButton.onClick.AddListener(() =>

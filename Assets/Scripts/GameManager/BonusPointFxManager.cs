@@ -12,12 +12,14 @@ public class BonusPointFxManager : MonoBehaviour
 
     public void Spawn(int point, Vector3 spawnPosition)
     {
-        if (pooling.Count == 0)
+        var fx = Instantiate(bonusPointUIFxPrefab, bonusPointUIFxPrefab.transform.position, Quaternion.identity, transform);
+        fx.Init(point);
+        /*if (pooling.Count == 0)
         {
             var fx = Instantiate(bonusPointUIFxPrefab, spawnPosition, Quaternion.identity, fxContainerGO.transform);
             Vector2 transformInViewPort = Camera.main.WorldToViewportPoint(spawnPosition);
             /*fx.RectTransform.anchorMin = transformInViewPort;
-            fx.RectTransform.anchorMax = transformInViewPort;*/
+            fx.RectTransform.anchorMax = transformInViewPort;#1#
             fx.RectTransform.position = new Vector3(transformInViewPort.x, transformInViewPort.y, 0f);
             fx.OnComplete = OnFxComplete;
             fx.Init(point);
@@ -28,7 +30,7 @@ public class BonusPointFxManager : MonoBehaviour
             pooling.RemoveAt(0);
             fx.transform.position = spawnPosition;
             fx.Init(point);
-        }
+        }*/
     }
 
     private void OnFxComplete(BonusPointUIFx fx)

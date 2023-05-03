@@ -12,12 +12,31 @@ public class GameData : Singleton<GameData>
     public int PlayingLevel = 1;
 
     public int LevelUnlock => levelUnlock;
-    
-    private void Awake()
+
+    protected override void Awake()
     {
+        base.Awake();
+        
+        //Global Setting Game
+        Application.targetFrameRate = 60;
+        Time.timeScale = 1f;
+        
         Deserializer.Deserialize(_set);
         DontDestroyOnLoad(gameObject);
-        levelUnlock = !PlayerPrefs.HasKey(UnlockLevelKey) ? 1 : PlayerPrefs.GetInt((UnlockLevelKey));
+        if (PlayerPrefs.HasKey(UnlockLevelKey))
+        {
+            levelUnlock = PlayerPrefs.GetInt(UnlockLevelKey);
+            if (levelUnlock < 1)
+            {
+                levelUnlock = 1;
+                PlayerPrefs.SetInt(UnlockLevelKey, levelUnlock);
+            }
+        }
+        else
+        {
+            levelUnlock = 1;
+            PlayerPrefs.SetInt(UnlockLevelKey, levelUnlock);
+        }
     }
 
     public void UnlockNewLevel()
