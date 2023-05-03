@@ -14,17 +14,25 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Button continueButton;
     [SerializeField] private TextMeshProUGUI continueButtonTMP;
     [SerializeField] private UIEndgamePanel endgamePanel;
+    [SerializeField] private UIPausePanel pausePanel;
+    [SerializeField] private Button pauseBtn;
 
     public QuestionController QuestionController => questionController;
     public UIAnimator UIAnimator => uiAnimator;
     private Animator animPlayer;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         animPlayer = Player.GetComponent<Animator>();
         scoreTMP.OnChangeText += uiAnimator.OnChangeScoreText;
         questionIndexTMP.OnChangeText += uiAnimator.OnChangeQuestionThText;
         continueButton.onClick.AddListener(OnContinueButtonClick);
+        pauseBtn.onClick.AddListener(() =>
+        {
+            AudioManager.Instance.PlayOnClick();
+            pausePanel.OnShow();
+        });
     }
 
     public void SetScore(int score)
@@ -56,6 +64,8 @@ public class UIManager : Singleton<UIManager>
             continueButton.onClick.RemoveAllListeners();
             continueButton.onClick.AddListener(() =>
             {
+                AudioManager.Instance.PlayOnClick();
+                
                 OnFinishGameClick();
                 //continueButton.onClick.RemoveAllListeners();
             });
@@ -65,6 +75,8 @@ public class UIManager : Singleton<UIManager>
 
     private void OnContinueButtonClick()
     {
+        AudioManager.Instance.PlayOnClick();
+        
         animPlayer.SetBool("isCrying", false);
         animPlayer.SetBool("isSmiling", false);
         HideQuestion();

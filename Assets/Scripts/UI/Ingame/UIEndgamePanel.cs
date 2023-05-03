@@ -47,8 +47,12 @@ public class UIEndgamePanel : MonoBehaviour
     
     private void OnGoHomeClick()
     {
+        AudioManager.Instance.PlayOnClick();
+        AudioManager.Instance.StopAllMusic();
+
         Debug.Log("On go home clicked!");
         goHomeButton.interactable = false;
+
         //StartCoroutine(_IELoadingInGame("Menu"));
         SceneController.Instance.LoadScene("Menu");
     }

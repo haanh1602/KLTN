@@ -53,7 +53,8 @@ public class QuestionController : MonoBehaviour
 
     public void OnClickWrongAnswer()
     {
-        Debug.Log("Wrong answer!");
+        AudioManager.Instance.PlayWrongAnswer();
+        
         UIManager.Instance.AnswerQuestion(false);
         GameManager.Instance.OnWrongClicked();
         foreach (var answer in answers)
@@ -83,7 +84,8 @@ public class QuestionController : MonoBehaviour
 
     public void OnClickRightAnswer()
     {
-        Debug.Log("Right answer!");
+        AudioManager.Instance.PlayRightAnswer();
+        
         UIManager.Instance.AnswerQuestion(true);
         GameManager.Instance.OnRightClicked();
         DisableAnswerInteractable();

@@ -100,10 +100,12 @@ public class GameManager : Singleton<GameManager>
         answering = false;
         EnemyManager._ins.ContinueEnemy();
     }
-    
-    private void Awake()
+
+    protected override void Awake()
     {
+        base.Awake();
         StartNewGame();
+        AudioManager.Instance.PlayInGameMusic();
     }
 
     private void StartNewGame() {

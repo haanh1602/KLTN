@@ -12,18 +12,21 @@ public class AudioManager : Singleton<AudioManager>
     [Header("Music")]
     public AudioClip music;
 
+    [Header("Music in game")] 
+    public AudioClip musicInGame;
+
     [Header("Sound")] 
     public AudioClip[] sounds;
 
-    protected void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         DontDestroyOnLoad(gameObject);
         //Get Setting Audio
         EazySoundManager.GlobalMusicVolume = PlayerPrefs.GetFloat(KEY_GLOBAL_VOL_MUSIC, 1);
         EazySoundManager.GlobalSoundsVolume = PlayerPrefs.GetFloat(KEY_GLOBAL_VOL_SOUND, 1);
         
-        //Play Music
-        EazySoundManager.PlayMusic(music, EazySoundManager.GlobalMusicVolume, true, false);
+        PlayThemeMusic();
     }
 
     public void PlaySound(int indexSound)
@@ -33,6 +36,36 @@ public class AudioManager : Singleton<AudioManager>
             return;
         }
         EazySoundManager.PlaySound(sounds[indexSound], EazySoundManager.GlobalSoundsVolume);
+    }
+
+    public void PlayOnClick()
+    {
+        EazySoundManager.PlaySound(sounds[0], EazySoundManager.GlobalSoundsVolume);
+    }
+
+    public void PlayRightAnswer()
+    {
+        EazySoundManager.PlaySound(sounds[1], EazySoundManager.GlobalSoundsVolume);
+    }
+    
+    public void PlayWrongAnswer()
+    {
+        EazySoundManager.PlaySound(sounds[2], EazySoundManager.GlobalSoundsVolume);
+    }
+
+    public void PlayInGameMusic()
+    {
+        EazySoundManager.PlayMusic(musicInGame, EazySoundManager.GlobalMusicVolume, true, false, 0.5f, 0.5f);
+    }
+
+    public void PlayThemeMusic()
+    {
+        EazySoundManager.PlayMusic(music, EazySoundManager.GlobalMusicVolume, true, false, 0.5f, 0.5f);
+    }
+
+    public void StopAllMusic()
+    {
+        EazySoundManager.StopAllMusic(0.5f);
     }
 
     public void SetVolumeMusic(float vol)

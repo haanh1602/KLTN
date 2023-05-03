@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 8300000, guid: f399054239c624e42899c49595627b00, type: 3}
+  musicInGame: {fileID: 8300000, guid: 9a658f47e8b16a546bc3f78b44d91c75, type: 3}
   sounds:
   - {fileID: 8300000, guid: 586d7c92fc427e649aa936b48abc3b12, type: 3}
+  - {fileID: 8300000, guid: 2d83f4c1ed08be445b305ab9ffa55364, type: 3}
+  - {fileID: 8300000, guid: c2a68d6f8e2bc434a9c2c837b8e821ce, type: 3}

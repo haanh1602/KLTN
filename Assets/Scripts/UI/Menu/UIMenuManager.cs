@@ -59,6 +59,8 @@ public class UIMenuManager : MonoBehaviour
             AudioManager.Instance.PlaySound(0);
             UISetting.SetActive(true);
         });
+        
+        AudioManager.Instance.PlayThemeMusic();
     }
     
     private IEnumerator _IELoadingInGame(string sceneName)
@@ -71,9 +73,15 @@ public class UIMenuManager : MonoBehaviour
     public void OnStartGame(int level)
     {
         Debug.LogWarning("____ Starting level " + level);
-        AudioManager.Instance.PlaySound(0);
+        AudioManager.Instance.PlayOnClick();
         //StartCoroutine(_IELoadingInGame("Level"));
         SceneController.Instance.LoadScene("Level");
+        AudioManager.Instance.StopAllMusic();
         GameData.Instance.PlayingLevel = level;
+    }
+
+    public void PlayOnClickSound()
+    {
+        AudioManager.Instance.PlayOnClick();
     }
 }

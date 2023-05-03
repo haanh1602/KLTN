@@ -7,6 +7,7 @@ public class UIHomeManager : MonoBehaviour
 {
     public void OnClickButtonHome()
     {
+        AudioManager.Instance.PlayOnClick();
         SceneController.Instance.LoadScene("Menu");
     }
 }

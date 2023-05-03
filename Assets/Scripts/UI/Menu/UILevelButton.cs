@@ -1,12 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Button = UnityEngine.UI.Button;
+using Image = UnityEngine.UI.Image;
+using Toggle = UnityEngine.UI.Toggle;
 
-public class UILevelButton : MonoBehaviour
+public class UILevelButton : MonoBehaviour, IPointerClickHandler
 { 
     private int level = 1;
     [SerializeField] private Image iconImage;
@@ -15,6 +17,8 @@ public class UILevelButton : MonoBehaviour
     [SerializeField] private Button btnStart;
     [SerializeField] private DOTweenAnimation dotAnimation;
 
+    [SerializeField] private DOTweenAnimation newDotAnimation;
+    
     private RectTransform _rectTransform;
     public RectTransform RectTransform
     {
@@ -52,10 +56,25 @@ public class UILevelButton : MonoBehaviour
         this.level = level;
         tmpLevel.text = "Bài " + level.ToString();
         toggle.interactable = level <= GameData.Instance.LevelUnlock;
+        if (level == GameData.Instance.LevelUnlock) ShowNewText();
     }
 
     public void SetToggleGroup(ToggleGroup toggleGroup)
     {
         toggle.group = toggleGroup;
+    }
+
+    public void ShowNewText()
+    {
+        if (newDotAnimation) newDotAnimation.DORestartById("show_new");
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        AudioManager.Instance.PlayOnClick();
+        if (!toggle.IsInteractable())
+        {
+            Debug.Log("Chưa mở khóa!");
+        }
     }
 }
