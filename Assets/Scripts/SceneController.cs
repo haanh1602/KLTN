@@ -7,7 +7,13 @@ using UnityEngine.SceneManagement;
 public class SceneController : Singleton<SceneController>
 {
     private bool isLoading = false;
-    
+
+    protected override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
+    }
+
     IEnumerator AsyncLoadScene(string sceneName)
     {
         if (isLoading) yield break;
