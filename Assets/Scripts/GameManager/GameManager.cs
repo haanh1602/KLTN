@@ -79,7 +79,7 @@ public class GameManager : Singleton<GameManager>
         {
             if (value == 2)
             {
-                // Warning
+                player.ChangeMaterial();
                 player.ShowWarning();
             }
             wrongAnswers = value;

@@ -7,6 +7,9 @@ public class BasePlayer : MonoBehaviour
 {
     public static BasePlayer _ins;
 
+    [SerializeField] private Material DefaultMaterial;
+    [SerializeField] private Material HoloMaterial;
+
     [SerializeField] private DOTweenAnimation warningDOT;
     
     public float exp;
@@ -15,6 +18,7 @@ public class BasePlayer : MonoBehaviour
     public void Awake()
     {
         _ins = this;
+        GetComponentInChildren<SpriteRenderer>().material = DefaultMaterial;
     }
 
     public void LevelUp()
@@ -25,6 +29,20 @@ public class BasePlayer : MonoBehaviour
     {
         UImanager._ins.GameOver();
     }
+
+    public void ChangeMaterial()
+    {
+        if (changeMaterialCoroutine == null) changeMaterialCoroutine = StartCoroutine(IEChangeMaterial());
+    }
+
+    private Coroutine changeMaterialCoroutine = null;
+    IEnumerator IEChangeMaterial()
+    {
+        yield return new WaitUntil(() => !GameManager.IsAnswering);
+        yield return new WaitForSeconds(0.5f);
+        GetComponentInChildren<SpriteRenderer>().material = HoloMaterial;
+    }
+
 
     public void ShowWarning()
     {

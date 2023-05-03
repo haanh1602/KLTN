@@ -435,6 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1ff1fd4c1747d44b7a09c7a067004a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  HoloMaterial: {fileID: 2100000, guid: 990a06ffeda43734e864d545330e132e, type: 2}
   warningDOT: {fileID: 0}
   exp: 0
   level: 1
